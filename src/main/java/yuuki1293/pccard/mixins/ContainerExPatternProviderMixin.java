@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import yuuki1293.pccard.CompetitionFixer;
 import yuuki1293.pccard.IPatternProviderMenuMixin;
 
-@Mixin(ContainerExPatternProvider.class)
+@Mixin(value = ContainerExPatternProvider.class, remap = false)
 public abstract class ContainerExPatternProviderMixin extends AEBaseMenu implements IPatternProviderMenuMixin {
     @Unique
     private IUpgradeableObject pCCard$host;
