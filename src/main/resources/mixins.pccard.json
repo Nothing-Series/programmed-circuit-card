@@ -12,7 +12,8 @@
     "PatternProviderBlockEntityMixin",
     "PatternProviderLogicMixin",
     "PatternProviderLogicMixinHP",
-    "PatternProviderMenuMixin"
+    "PatternProviderMenuMixin",
+    "PatternProviderPartMixin"
   ],
   "client": [
     "PatternProviderScreenMixin"
