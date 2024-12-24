@@ -3,7 +3,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [1.0.4] - 2024-12-24
 ## Fixed
- - Broken cable pattern provider #1
+ - Broken cable pattern provider [#1](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/1)
 
 ## [1.0.3] - 2024-12-13
 ### Fixed
