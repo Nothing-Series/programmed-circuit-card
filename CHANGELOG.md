@@ -1,6 +1,10 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [1.0.5] - 2024-12-27
+## Fixed
+ - Not working properly [#2](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/2)
+
 ## [1.0.4] - 2024-12-24
 ## Fixed
  - Broken cable pattern provider [#1](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/1)
