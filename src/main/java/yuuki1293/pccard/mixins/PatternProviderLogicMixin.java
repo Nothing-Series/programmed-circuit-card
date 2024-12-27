@@ -176,6 +176,7 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
     @Unique
     private BlockPos pCCard$getSendPos() {
         try {
+            // stone.mae2.mixins.PatternProviderLogicMixin.pushPattern
             if (Arrays.stream(PatternProviderLogic.class.getDeclaredFields()).anyMatch(f -> f.getName().equals("sendPos"))) {
                 @SuppressWarnings("JavaReflectionMemberAccess")
                 var posFiled = PatternProviderLogic.class.getDeclaredField("sendPos");
@@ -188,7 +189,10 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
             var be = this.host.getBlockEntity();
 
-            return be.getBlockPos().relative(pCCard$sendDirection);
+            if (this.sendDirection == null)
+                return be.getBlockPos().relative(pCCard$sendDirection);
+
+            return be.getBlockPos().relative(this.sendDirection);
         } catch (Exception e) {
             pCCard$LOGGER.error("Error while getting sendPos", e);
             return BlockPos.ZERO;
@@ -200,6 +204,7 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
         return isUpgradedWith(PCCard.PROGRAMMED_CIRCUIT_CARD_ITEM.get());
     }
 
+    // This is necessary?
     @Inject(method = "sendStacksOut", at = @At("HEAD"))
     private void sendStacksOut(CallbackInfoReturnable<Boolean> cir) {
         pCCard$sendDirection = this.sendDirection;
