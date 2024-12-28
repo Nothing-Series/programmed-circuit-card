@@ -29,7 +29,7 @@ public class PatternProviderScreenMixin extends AEBaseScreen<PatternProviderMenu
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void init(CallbackInfo ci) {
-        if (CompetitionFixer.hasPatternProviderUpgrade()) return;
+        if (CompetitionFixer.existAppflux.get()) return;
 
         this.widgets.add("upgrades", new UpgradesPanel(
             menu.getSlots(SlotSemantics.UPGRADE),

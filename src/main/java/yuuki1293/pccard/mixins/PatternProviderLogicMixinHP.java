@@ -25,7 +25,7 @@ public abstract class PatternProviderLogicMixinHP {
 
     @Inject(method = "<init>(Lappeng/api/networking/IManagedGridNode;Lappeng/helpers/patternprovider/PatternProviderLogicHost;I)V", at = @At("TAIL"))
     private void init(IManagedGridNode mainNode, PatternProviderLogicHost host, int patternInventorySize, CallbackInfo ci) {
-        if (CompetitionFixer.hasPatternProviderUpgrade()) {
+        if (CompetitionFixer.existAppflux.get()) {
             try {
                 @SuppressWarnings("JavaReflectionMemberAccess")
                 var upgradeField = PatternProviderLogic.class.getDeclaredField("af_$upgrades");

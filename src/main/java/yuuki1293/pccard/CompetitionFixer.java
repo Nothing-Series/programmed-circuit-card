@@ -15,19 +15,15 @@ import java.util.function.Supplier;
 public class CompetitionFixer {
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    private static Boolean eIPPCache = null;
+    public static Supplier<Boolean> existAppflux = Suppliers.memoize(CompetitionFixer::hasPatternProviderUpgrade);
     public static Supplier<ItemEntry<ComponentItem>> PC = Suppliers.memoize(CompetitionFixer::getPC);
 
-    public static boolean hasPatternProviderUpgrade() {
-        if (eIPPCache != null) return eIPPCache;
-
+    private static boolean hasPatternProviderUpgrade() {
         ModList modList = ModList.get();
 
-        eIPPCache = modList.getMods().stream()
+        return modList.getMods().stream()
             .map(IModInfo::getModId)
             .anyMatch(id -> id.equals("appflux")); // detect Applied Flux
-
-        return eIPPCache;
     }
 
     /**

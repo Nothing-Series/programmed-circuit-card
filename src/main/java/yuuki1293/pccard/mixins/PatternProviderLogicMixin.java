@@ -56,7 +56,7 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
     @Inject(method = "<init>(Lappeng/api/networking/IManagedGridNode;Lappeng/helpers/patternprovider/PatternProviderLogicHost;I)V", at = @At("TAIL"))
     private void init(IManagedGridNode mainNode, PatternProviderLogicHost host, int patternInventorySize, CallbackInfo ci) {
-        if (CompetitionFixer.hasPatternProviderUpgrade()) return;
+        if (CompetitionFixer.existAppflux.get()) return;
 
         pCCard$upgrades = UpgradeInventories.forMachine(host.getTerminalIcon().getItem(), 1, this::pCCard$upgradesChange);
     }
@@ -69,14 +69,14 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
     @Inject(method = "writeToNBT", at = @At("HEAD"))
     private void writeToNBT(CompoundTag tag, CallbackInfo ci) {
-        if (CompetitionFixer.hasPatternProviderUpgrade()) return;
+        if (CompetitionFixer.existAppflux.get()) return;
 
         this.pCCard$upgrades.writeToNBT(tag, "upgrades");
     }
 
     @Inject(method = "readFromNBT", at = @At("HEAD"))
     private void readFromNBT(CompoundTag tag, CallbackInfo ci) {
-        if (CompetitionFixer.hasPatternProviderUpgrade()) return;
+        if (CompetitionFixer.existAppflux.get()) return;
 
         this.pCCard$upgrades.readFromNBT(tag, "upgrades");
     }
@@ -88,7 +88,7 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
     @Inject(method = "addDrops", at = @At("HEAD"))
     private void addDrops(List<ItemStack> drops, CallbackInfo ci) {
-        if (CompetitionFixer.hasPatternProviderUpgrade()) return;
+        if (CompetitionFixer.existAppflux.get()) return;
 
         for (var is : this.pCCard$upgrades) {
             if (!is.isEmpty()) {
@@ -99,7 +99,7 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
     @Inject(method = "clearContent", at = @At("HEAD"))
     private void clearContent(CallbackInfo ci) {
-        if (CompetitionFixer.hasPatternProviderUpgrade()) return;
+        if (CompetitionFixer.existAppflux.get()) return;
 
         this.pCCard$upgrades.clear();
     }

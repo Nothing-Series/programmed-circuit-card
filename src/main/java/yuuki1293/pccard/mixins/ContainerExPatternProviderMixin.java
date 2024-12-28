@@ -26,7 +26,7 @@ public abstract class ContainerExPatternProviderMixin extends AEBaseMenu impleme
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void init(int id, Inventory playerInventory, PatternProviderLogicHost host, CallbackInfo ci) {
-        if (CompetitionFixer.hasPatternProviderUpgrade()) return;
+        if (CompetitionFixer.existAppflux.get()) return;
 
         this.pCCard$host = (IUpgradeableObject) host;
         this.pCCard$setupUpgrades();
