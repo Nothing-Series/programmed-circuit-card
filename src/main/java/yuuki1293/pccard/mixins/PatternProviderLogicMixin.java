@@ -10,7 +10,6 @@ import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.helpers.patternprovider.PatternProviderLogicHost;
 import com.gregtechceu.gtceu.api.machine.SimpleTieredMachine;
 import com.gregtechceu.gtceu.api.machine.trait.NotifiableItemStackHandler;
-import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.item.IntCircuitBehaviour;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.ItemBusPartMachine;
 import com.mojang.logging.LogUtils;
@@ -115,13 +114,13 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
                 var inputs = Arrays.stream(originalInputs)
                     .filter(Objects::nonNull)
-                    .filter(x -> !x.getPossibleInputs()[0].what().getId().equals(GTItems.INTEGRATED_CIRCUIT.getId())) // Check item
+                    .filter(x -> !x.getPossibleInputs()[0].what().getId().equals(CompetitionFixer.PC.get().getId())) // Check item
                     .toArray(IPatternDetails.IInput[]::new);
 
                 if (!Arrays.equals(inputs, originalInputs)) {
                     var recipeStack = Arrays.stream(originalInputs)
                         .filter(Objects::nonNull)
-                        .filter(x -> x.getPossibleInputs()[0].what().getId().equals(GTItems.INTEGRATED_CIRCUIT.getId()))
+                        .filter(x -> x.getPossibleInputs()[0].what().getId().equals(CompetitionFixer.PC.get().getId()))
                         .findFirst()
                         .map(x -> x.getPossibleInputs()[0].what().wrapForDisplayOrFilter())
                         .orElse(ItemStack.EMPTY);
@@ -162,7 +161,7 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
     @Unique
     private void pCCard$setInvNumber(NotifiableItemStackHandler inv, AEPatternWrapper details) {
-        var machineStack = GTItems.INTEGRATED_CIRCUIT.asStack();
+        var machineStack = CompetitionFixer.PC.get().asStack();
 
         var number = details.getNumber();
         IntCircuitBehaviour.setCircuitConfiguration(machineStack, number);

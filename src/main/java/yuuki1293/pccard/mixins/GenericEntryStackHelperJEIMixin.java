@@ -2,7 +2,6 @@ package yuuki1293.pccard.mixins;
 
 import appeng.api.stacks.GenericStack;
 import appeng.integration.modules.jei.GenericEntryStackHelper;
-import com.gregtechceu.gtceu.common.data.GTItems;
 import mezz.jei.api.gui.ingredient.IRecipeSlotView;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
@@ -12,6 +11,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import yuuki1293.pccard.CompetitionFixer;
 import yuuki1293.pccard.PCCard;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public abstract class GenericEntryStackHelperJEIMixin {
     private static void ofInputs(IRecipeSlotsView recipeLayout, CallbackInfoReturnable<List<List<GenericStack>>> cir) {
         var inputs = cir.getReturnValue();
 
-        var circuitStack = GTItems.INTEGRATED_CIRCUIT.asStack();
+        var circuitStack = CompetitionFixer.PC.get().asStack();
         var circuit = recipeLayout.getSlotViews(RecipeIngredientRole.CATALYST).stream()
             .filter(ei -> {
                 var stack = ei.getDisplayedItemStack().orElse(ItemStack.EMPTY);
