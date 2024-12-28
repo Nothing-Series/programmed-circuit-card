@@ -1,7 +1,7 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
-## [Unreleased]
+## [1.0.6] - 2024-12-28
 ### Fixed
  - ExtendedAE pattern provider part [#3](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/3)
  - Crash with GregTech 1.6.1 [#4](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/4)
