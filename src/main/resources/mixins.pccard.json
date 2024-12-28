@@ -9,6 +9,7 @@
     "ContainerExPatternProviderMixin",
     "CraftingCPULogicMixin",
     "GenericEntryStackHelperJEIMixin",
+    "PartExPatternProviderMixin",
     "PatternProviderBlockEntityMixin",
     "PatternProviderLogicMixin",
     "PatternProviderLogicMixinHP",

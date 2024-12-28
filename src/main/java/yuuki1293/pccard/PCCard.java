@@ -45,7 +45,7 @@ public class PCCard {
         });
     }
 
-    public void postRegistrationInitialization(){
+    public void postRegistrationInitialization() {
         var patternProviderGroup = GuiText.CraftingInterface.getTranslationKey();
         var item = PROGRAMMED_CIRCUIT_CARD_ITEM.get();
 
@@ -57,8 +57,8 @@ public class PCCard {
         var resourceBE = new ResourceLocation("expatternprovider", "ex_pattern_provider");
         var resourcePart = new ResourceLocation("expatternprovider", "ex_pattern_provider_part");
         var patternProviderBE = ForgeRegistries.BLOCKS.getValue(resourceBE);
-        var patternProviderPart = ForgeRegistries.BLOCKS.getValue(resourcePart);
-        if(patternProviderBE != null && patternProviderPart != null) {
+        var patternProviderPart = ForgeRegistries.ITEMS.getValue(resourcePart);
+        if (patternProviderBE != null && patternProviderPart != null) {
             Upgrades.add(item, patternProviderBE, 1, exPatternProviderGroup);
             Upgrades.add(item, patternProviderPart, 1, exPatternProviderGroup);
         }
