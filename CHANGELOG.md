@@ -1,6 +1,10 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [1.0.7] - 2025-01-18
+### Fixed
+ - Not working with AdvancedAE CPU [#5](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/5)
+
 ## [1.0.6] - 2024-12-28
 ### Fixed
  - ExtendedAE pattern provider part [#3](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/3)
