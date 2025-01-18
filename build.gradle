@@ -1,3 +1,5 @@
+import org.jetbrains.changelog.Changelog
+
 plugins {
     id 'eclipse'
     id 'idea'
@@ -5,13 +7,13 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+'
-    id 'net.darkhax.curseforgegradle' version '1.1.25'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
     id 'com.modrinth.minotaur' version '2.+'
     id 'com.github.breadmoirai.github-release' version '2.4.1'
-    id 'io.github.yuuki1293.changelog' version '1.1.1'
+    id 'org.jetbrains.changelog' version '2.2.1'
 }
 
-version = mod_version
+version = "$minecraft_version-$mod_version"
 group = mod_group_id
 
 base {
@@ -193,28 +195,47 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-def changelogText = changelog.text
+String parserChangelog() {
+    if (!file('CHANGELOG.md').exists()) {
+        throw new GradleException('publish_with_changelog is true, but CHANGELOG.md does not exist in the workspace!')
+    }
+    String parsedChangelog = changelog.renderItem(
+            changelog.get(mod_version).withHeader(false).withEmptySections(false),
+            Changelog.OutputType.MARKDOWN)
+    if (parsedChangelog.isEmpty()) {
+        throw new GradleException('publish_with_changelog is true, but the changelog for the latest version is empty!')
+    }
+    return parsedChangelog
+}
 
-task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-    group = "publishing"
-    apiToken = System.getenv('CURSEFORGE_API_KEY') ?: 'XXX'
-
-    def mainFile = upload(1150540, jar)
-    mainFile.releaseType = project.version_type
-    mainFile.changelog = changelogText
-    mainFile.changelogType = 'markdown'
-    mainFile.displayName = "${rootProject.name} ${project.version}"
-    mainFile.addGameVersion(project.minecraft_version)
-    mainFile.addJavaVersion('Java 17')
-    mainFile.addRequirement('applied-energistics-2', 'gregtechceu-modern')
-    mainFile.addOptional('ex-pattern-provider', 'modern-ae2-additions', 'jei', 'emi')
-    mainFile.addModLoader('forge')
+curseforge {
+    apiKey = System.getenv('CURSEFORGE_TOKEN') ?: ''
+    // noinspection GroovyAssignabilityCheck
+    project {
+        id = '1150540'
+        addGameVersion 'Java 17'
+        addGameVersion 'Forge'
+        addGameVersion '1.20.1'
+        releaseType = project.version_type
+        changelog = parserChangelog()
+        changelogType = 'markdown'
+        mainArtifact jar, {
+            displayName = "${rootProject.name} ${project.version}"
+            relations {
+                requiredDependency 'applied-energistics-2'
+                requiredDependency 'gregtechceu-modern'
+                optionalDependency 'ex-pattern-provider'
+                optionalDependency 'advancedae'
+                optionalDependency 'modern-ae2-additions'
+                optionalDependency 'jei'
+                optionalDependency 'emi'
+            }
+        }
+    }
 }
 
 modrinth {
-    var modrinthToken = System.getenv('MODRINTH_TOKEN') ?: 'XXX'
-
-    token = modrinthToken
+    token = System.getenv('MODRINTH_TOKEN') ?: ''
     // Remember to have the MODRINTH_TOKEN environment variable set or else this will fail - just make sure it stays private!
     projectId = 'C3Mtqx9z' // This can be the project ID or the slug. Either will work!
     versionNumber = project.version as String
@@ -224,11 +245,12 @@ modrinth {
     uploadFile = jar // With Loom, this MUST be set to `remapJar` instead of `jar`!
     gameVersions = [project.minecraft_version] // Must be an array, even with only one version
     loaders = ['forge'] // Must also be an array - no need to specify this if you're using Loom or ForgeGradle
-    changelog = changelogText
+    changelog = parserChangelog()
     dependencies {
         required.project 'ae2'
         required.project 'gregtechceu-modern'
         optional.project 'extended-ae'
+        optional.project 'advanced-ae'
         optional.project 'modern-ae2-additions'
         optional.project 'jei'
         optional.project 'emi'
@@ -236,7 +258,7 @@ modrinth {
 }
 
 githubRelease {
-    token System.getenv('GITHUB_API_KEY') ?: 'XXX' // This is your personal access token with Repo permissions
+    token System.getenv('GITHUB_TOKEN') ?: '' // This is your personal access token with Repo permissions
     // You get this from your user settings > developer settings > Personal Access Tokens
     owner 'yuuki1293' // default is the last part of your group. Eg group: 'com.github.breadmoirai" => owner: "breadmoirai"
     repo 'ProgrammedCircuitCard' // by default this is set to your project name
@@ -244,7 +266,7 @@ githubRelease {
     targetCommitish '1.20.1' // by default this is set to "main"
     releaseName "${rootProject.name} ${project.version}" // Release title, by default this is the same as the tagName
     generateReleaseNotes false // Generate release notes automatically, if true and body is present, body will be prepended, if name is not given, one will be generated by the tag
-    body changelogText // by default this is empty
+    body parserChangelog() // by default this is empty
     draft true // by default this is true
     prerelease false // by default this is false
     releaseAssets jar // this points to which files you want to upload as assets with your release, by default this is empty
@@ -259,18 +281,9 @@ task uploadAll {
     group = "publishing"
     description = "Uploads the mod to CurseForge, Modrinth, and GitHub releases."
 
-    if (isUnreleasedIncluded()) {
+    if (changelog.latest.version == 'Unreleased') {
         logger.error("Remove 'Unreleased' in CHANGELOG.")
     } else {
-        dependsOn publishCurseForge, 'modrinth', 'githubRelease'
+        dependsOn 'publishCurseForge', 'modrinth', 'githubRelease'
     }
-}
-
-boolean isUnreleasedIncluded() {
-    def changelogFile = file("CHANGELOG.md")
-    if (changelogFile.exists()) {
-        def changelogContent = changelogFile.text
-        return changelogContent.contains("Unreleased")
-    }
-    return false
 }
