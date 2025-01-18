@@ -17,4 +17,5 @@ Programmed Circuit Card can be inserted into Pattern Provider. When pushing a re
 
 ## Supported Addons
 - [ExtendedAE](https://www.curseforge.com/minecraft/mc-mods/ex-pattern-provider) (GlodBlock)
+- [AdvancedAE](https://www.curseforge.com/minecraft/mc-mods/advancedae) (pedroksl)
 - [MAE2](https://www.curseforge.com/minecraft/mc-mods/modern-ae2-additions) (AE2Enthusiast)
