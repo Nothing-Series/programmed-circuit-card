@@ -250,7 +250,7 @@ modrinth {
         required.project 'ae2'
         required.project 'gregtechceu-modern'
         optional.project 'extended-ae'
-        optional.project 'advanced-ae'
+        optional.project 'advancedae'
         optional.project 'modern-ae2-additions'
         optional.project 'jei'
         optional.project 'emi'
