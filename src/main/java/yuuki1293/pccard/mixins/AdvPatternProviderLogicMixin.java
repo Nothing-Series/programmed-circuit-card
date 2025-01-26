@@ -6,7 +6,6 @@ import appeng.api.upgrades.IUpgradeInventory;
 import appeng.api.upgrades.IUpgradeableObject;
 import appeng.api.upgrades.UpgradeInventories;
 import appeng.crafting.pattern.AEProcessingPattern;
-import appeng.helpers.patternprovider.PatternProviderLogic;
 import com.gregtechceu.gtceu.api.machine.SimpleTieredMachine;
 import com.gregtechceu.gtceu.api.machine.trait.NotifiableItemStackHandler;
 import com.gregtechceu.gtceu.common.item.IntCircuitBehaviour;
@@ -179,9 +178,9 @@ public abstract class AdvPatternProviderLogicMixin implements IUpgradeableObject
     private BlockPos pCCard$getSendPos() {
         try {
             // stone.mae2.mixins.PatternProviderLogicMixin.pushPattern
-            if (Arrays.stream(PatternProviderLogic.class.getDeclaredFields()).anyMatch(f -> f.getName().equals("sendPos"))) {
+            if (Arrays.stream(AdvPatternProviderLogic.class.getDeclaredFields()).anyMatch(f -> f.getName().equals("sendPos"))) {
                 @SuppressWarnings("JavaReflectionMemberAccess")
-                var posFiled = PatternProviderLogic.class.getDeclaredField("sendPos");
+                var posFiled = AdvPatternProviderLogic.class.getDeclaredField("sendPos");
                 posFiled.setAccessible(true);
                 var pos = posFiled.get(this);
 
