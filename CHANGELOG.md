@@ -1,7 +1,7 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
-## [Unreleased]
+## [1.0.8] - 2025-01-27
 ### Added
  - Advanced AE pattern provider support [#6](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/6)
 
