@@ -1,0 +1,47 @@
+package yuuki1293.pccard.mixins;
+
+import appeng.api.upgrades.Upgrades;
+import appeng.client.gui.AEBaseScreen;
+import appeng.client.gui.style.ScreenStyle;
+import appeng.client.gui.widgets.UpgradesPanel;
+import appeng.core.localization.GuiText;
+import appeng.menu.SlotSemantics;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
+import net.pedroksl.advanced_ae.client.gui.AdvPatternProviderScreen;
+import net.pedroksl.advanced_ae.gui.advpatternprovider.AdvPatternProviderMenu;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import yuuki1293.pccard.CompetitionFixer;
+import yuuki1293.pccard.IPatternProviderMenuMixin;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Mixin(value = AdvPatternProviderScreen.class, remap = false)
+abstract public class AdvPatternProviderScreenMixin extends AEBaseScreen<AdvPatternProviderMenu> {
+    public AdvPatternProviderScreenMixin(AdvPatternProviderMenu menu, Inventory playerInventory, Component title, ScreenStyle style) {
+        super(menu, playerInventory, title, style);
+    }
+
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void init(CallbackInfo ci) {
+        if (CompetitionFixer.existAppflux.get()) return;
+
+        this.widgets.add("upgrades", new UpgradesPanel(
+            menu.getSlots(SlotSemantics.UPGRADE),
+            this::pCCard$getCompatibleUpgrades));
+    }
+
+    @Unique
+    private List<Component> pCCard$getCompatibleUpgrades() {
+        var list = new ArrayList<Component>();
+        list.add(GuiText.CompatibleUpgrades.text());
+        list.addAll(Upgrades.getTooltipLinesForMachine(((IPatternProviderMenuMixin) menu).pCCard$getUpgrades().getUpgradableItem()));
+        return list;
+    }
+}

@@ -6,6 +6,11 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AdvCraftingCPULogicMixin",
+    "AdvPatternProviderEntityMixin",
+    "AdvPatternProviderLogicMixin",
+    "AdvPatternProviderLogicMixinHP",
+    "AdvPatternProviderMenuMixin",
+    "AdvPatternProviderPartMixin",
     "Ae2PatternTerminalHandlerMixin",
     "ContainerExPatternProviderMixin",
     "CraftingCPULogicMixin",
@@ -18,6 +23,7 @@
     "PatternProviderPartMixin"
   ],
   "client": [
+    "AdvPatternProviderScreenMixin",
     "PatternProviderScreenMixin"
   ]
 }
