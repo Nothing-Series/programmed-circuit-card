@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 ### Added
  - Advanced AE pattern provider support [#6](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/6)
 
+### Fixed
+ - Not working in the input hatch. #7 [#7](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/7)
+
 ## [1.0.7] - 2025-01-18
 ### Fixed
  - Not working with AdvancedAE CPU [#5](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/5)
