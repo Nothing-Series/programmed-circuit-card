@@ -5,19 +5,13 @@ import appeng.api.networking.IManagedGridNode;
 import appeng.api.upgrades.IUpgradeInventory;
 import appeng.api.upgrades.IUpgradeableObject;
 import appeng.api.upgrades.UpgradeInventories;
-import appeng.crafting.pattern.AEProcessingPattern;
 import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.helpers.patternprovider.PatternProviderLogicHost;
-import com.gregtechceu.gtceu.api.machine.SimpleTieredMachine;
-import com.gregtechceu.gtceu.api.machine.trait.NotifiableItemStackHandler;
-import com.gregtechceu.gtceu.common.item.IntCircuitBehaviour;
-import com.gregtechceu.gtceu.common.machine.multiblock.part.ItemBusPartMachine;
-import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
-import org.slf4j.Logger;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,17 +22,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import yuuki1293.pccard.CompetitionFixer;
 import yuuki1293.pccard.IPatternProviderLogicMixin;
 import yuuki1293.pccard.PCCard;
-import yuuki1293.pccard.wrapper.AEPatternWrapper;
+import yuuki1293.pccard.impl.PatternProviderLogicImpl;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 @Mixin(value = PatternProviderLogic.class, remap = false, priority = 800)
 public abstract class PatternProviderLogicMixin implements IUpgradeableObject, IPatternProviderLogicMixin {
-    @Unique
-    private static Logger pCCard$LOGGER = LogUtils.getLogger();
-
     @Unique
     private static Direction pCCard$sendDirection;
 
@@ -106,101 +95,34 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
     @ModifyVariable(method = "updatePatterns", at = @At("STORE"), ordinal = 0)
     private IPatternDetails updatePatterns(IPatternDetails detail) {
-        if (pCCard$hasPCCard()) {
-            if (detail instanceof AEProcessingPattern) {
-                final var definition = detail.getDefinition();
-                final var originalInputs = detail.getInputs();
-                final var originalOutputs = detail.getOutputs();
-
-                var inputs = Arrays.stream(originalInputs)
-                    .filter(Objects::nonNull)
-                    .filter(x -> !x.getPossibleInputs()[0].what().getId().equals(CompetitionFixer.PC.get().getId())) // Check item
-                    .toArray(IPatternDetails.IInput[]::new);
-
-                if (!Arrays.equals(inputs, originalInputs)) {
-                    var recipeStack = Arrays.stream(originalInputs)
-                        .filter(Objects::nonNull)
-                        .filter(x -> x.getPossibleInputs()[0].what().getId().equals(CompetitionFixer.PC.get().getId()))
-                        .findFirst()
-                        .map(x -> x.getPossibleInputs()[0].what().wrapForDisplayOrFilter())
-                        .orElse(ItemStack.EMPTY);
-                    var number = IntCircuitBehaviour.getCircuitConfiguration(recipeStack);
-
-                    return new AEPatternWrapper(definition, inputs, originalOutputs, number);
-                }
-            }
-        }
-
-        return detail;
+        return PatternProviderLogicImpl.updatePatterns(this, detail);
     }
 
-    /**
-     *  NOTE: call after {@code pushPattern}
-     */
     @Override
-    @Unique
     public void pCCard$setPCNumber(IPatternDetails patternDetails) {
-        if (pCCard$hasPCCard() && patternDetails instanceof AEPatternWrapper patternDetailsW) {
-            var be = this.host.getBlockEntity();
-            var level = be.getLevel();
-            if (level == null) return;
-
-            var blockPos = pCCard$getSendPos();
-            var gtMachine = SimpleTieredMachine.getMachine(level, blockPos);
-            if (gtMachine == null) return; // filter gtMachine
-
-            if (gtMachine instanceof SimpleTieredMachine tieredMachine) {
-                var inv = tieredMachine.getCircuitInventory();
-                pCCard$setInvNumber(inv, patternDetailsW);
-            } else if (gtMachine instanceof ItemBusPartMachine busPartMachine) {
-                var inv = busPartMachine.getCircuitInventory();
-                pCCard$setInvNumber(inv, patternDetailsW);
-            }
-        }
+        PatternProviderLogicImpl.setPCNumber(this, patternDetails);
     }
 
-    @Unique
-    private void pCCard$setInvNumber(NotifiableItemStackHandler inv, AEPatternWrapper details) {
-        var machineStack = CompetitionFixer.PC.get().asStack();
-
-        var number = details.getNumber();
-        IntCircuitBehaviour.setCircuitConfiguration(machineStack, number);
-        inv.setStackInSlot(0, machineStack);
+    @Override
+    public BlockPos pCCard$getSendPos() {
+        return PatternProviderLogicImpl.getSendPos(this, PatternProviderLogic.class);
     }
 
-    /**
-     * support MAE2 pattern p2p
-     * @return machine block pos
-     */
-    @Unique
-    private BlockPos pCCard$getSendPos() {
-        try {
-            // stone.mae2.mixins.PatternProviderLogicMixin.pushPattern
-            if (Arrays.stream(PatternProviderLogic.class.getDeclaredFields()).anyMatch(f -> f.getName().equals("sendPos"))) {
-                @SuppressWarnings("JavaReflectionMemberAccess")
-                var posFiled = PatternProviderLogic.class.getDeclaredField("sendPos");
-                posFiled.setAccessible(true);
-                var pos = posFiled.get(this);
-
-                if (pos != null)
-                    return (BlockPos) posFiled.get(this);
-            }
-
-            var be = this.host.getBlockEntity();
-
-            if (this.sendDirection == null)
-                return be.getBlockPos().relative(pCCard$sendDirection);
-
-            return be.getBlockPos().relative(this.sendDirection);
-        } catch (Exception e) {
-            pCCard$LOGGER.error("Error while getting sendPos", e);
-            return BlockPos.ZERO;
-        }
+    @Override
+    public Direction pCCard$getSendDirection(){
+        if (this.sendDirection == null)
+            return pCCard$sendDirection;
+        return this.sendDirection;
     }
 
-    @Unique
+    @Override
     public boolean pCCard$hasPCCard() {
         return isUpgradedWith(PCCard.PROGRAMMED_CIRCUIT_CARD_ITEM.get());
+    }
+
+    @Override
+    public BlockEntity pCCard$getBlockEntity() {
+        return this.host.getBlockEntity();
     }
 
     // This is necessary?
