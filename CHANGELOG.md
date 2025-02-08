@@ -1,7 +1,7 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
-## [Unreleased]
+## [1.0.9] - 2025-02-08
 ### Fixed
  - Circuit is not placed with EMI. [#9](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/9)
 
