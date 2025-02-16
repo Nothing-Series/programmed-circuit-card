@@ -1,6 +1,10 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [1.0.10] - 2025-02-16
+### Added
+ - JEI integration config. [#8](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/8)
+
 ## [1.0.9] - 2025-02-08
 ### Fixed
  - Circuit is not placed with EMI. [#9](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/9)
