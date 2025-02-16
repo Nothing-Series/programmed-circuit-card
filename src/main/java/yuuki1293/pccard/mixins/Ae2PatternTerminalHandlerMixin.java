@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import yuuki1293.pccard.CompetitionFixer;
+import yuuki1293.pccard.ConfigClient;
 import yuuki1293.pccard.PCCard;
 
 import java.util.List;
@@ -18,6 +19,8 @@ import java.util.stream.Stream;
 public abstract class Ae2PatternTerminalHandlerMixin {
     @Inject(method = "ofInputs", at = @At("RETURN"), cancellable = true)
     private static void ofInputs(EmiRecipe emiRecipe, CallbackInfoReturnable<List<List<GenericStack>>> cir) {
+        if(!ConfigClient.jeiIntegration) return; // config
+
         var inputs = cir.getReturnValue();
 
         var circuitStack = CompetitionFixer.PC.get().asStack();
