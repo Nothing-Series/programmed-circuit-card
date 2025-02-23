@@ -5,12 +5,12 @@ import appeng.api.crafting.PatternDetailsHelper;
 import com.gregtechceu.gtceu.api.machine.SimpleTieredMachine;
 import com.gregtechceu.gtceu.api.machine.feature.IHasCircuitSlot;
 import com.gregtechceu.gtceu.api.machine.trait.NotifiableItemStackHandler;
+import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.item.IntCircuitBehaviour;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import org.slf4j.Logger;
-import yuuki1293.pccard.CompetitionFixer;
 import yuuki1293.pccard.IPatternProviderLogicMixin;
 import yuuki1293.pccard.TagUtils;
 import yuuki1293.pccard.wrapper.IAEPattern;
@@ -57,7 +57,7 @@ public class PatternProviderLogicImpl {
     }
 
     private static void setInvNumber(NotifiableItemStackHandler inv, IAEPattern details) {
-        var machineStack = CompetitionFixer.PC.get().asStack();
+        var machineStack = GTItems.PROGRAMMED_CIRCUIT.asStack();
 
         var number = details.pCCard$getNumber();
         IntCircuitBehaviour.setCircuitConfiguration(machineStack, number);

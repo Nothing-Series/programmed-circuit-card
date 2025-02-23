@@ -1,6 +1,7 @@
 package yuuki1293.pccard.mixins;
 
 import appeng.api.stacks.GenericStack;
+import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.integration.emi.recipe.Ae2PatternTerminalHandler;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import net.minecraft.world.item.ItemStack;
@@ -8,7 +9,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import yuuki1293.pccard.CompetitionFixer;
 import yuuki1293.pccard.ConfigClient;
 import yuuki1293.pccard.PCCard;
 
@@ -23,7 +23,7 @@ public abstract class Ae2PatternTerminalHandlerMixin {
 
         var inputs = cir.getReturnValue();
 
-        var circuitStack = CompetitionFixer.PC.get().asStack();
+        var circuitStack = GTItems.PROGRAMMED_CIRCUIT.asStack();
         var circuit = emiRecipe.getCatalysts().stream()
             .filter(ei -> {
                 var stack = ei.getEmiStacks().get(0).getItemStack();
