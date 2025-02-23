@@ -1,7 +1,7 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
-## [1.0.11]
+## [1.0.11] - 2025-02-23
 ### Fixed
  - Does not work properly across multiple pattern providers using crafting co-processing units [#11](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/11)
 
