@@ -5,6 +5,7 @@ import appeng.api.networking.IManagedGridNode;
 import appeng.api.upgrades.IUpgradeInventory;
 import appeng.api.upgrades.IUpgradeableObject;
 import appeng.api.upgrades.UpgradeInventories;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -96,8 +97,8 @@ public abstract class AdvPatternProviderLogicMixin implements IUpgradeableObject
     }
 
     @ModifyVariable(method = "updatePatterns", at = @At("STORE"), ordinal = 0)
-    private IPatternDetails updatePatterns(IPatternDetails detail) {
-        return PatternProviderLogicImpl.updatePatterns(this, detail);
+    private IPatternDetails updatePatterns(IPatternDetails detail, @Local ItemStack stack) {
+        return PatternProviderLogicImpl.updatePatterns(this, detail, stack);
     }
 
     @Override

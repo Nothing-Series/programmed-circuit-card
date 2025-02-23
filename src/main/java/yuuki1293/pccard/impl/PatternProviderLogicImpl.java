@@ -1,7 +1,7 @@
 package yuuki1293.pccard.impl;
 
 import appeng.api.crafting.IPatternDetails;
-import appeng.crafting.pattern.AEProcessingPattern;
+import appeng.api.crafting.PatternDetailsHelper;
 import com.gregtechceu.gtceu.api.machine.SimpleTieredMachine;
 import com.gregtechceu.gtceu.api.machine.feature.IHasCircuitSlot;
 import com.gregtechceu.gtceu.api.machine.trait.NotifiableItemStackHandler;
@@ -12,36 +12,26 @@ import net.minecraft.world.item.ItemStack;
 import org.slf4j.Logger;
 import yuuki1293.pccard.CompetitionFixer;
 import yuuki1293.pccard.IPatternProviderLogicMixin;
-import yuuki1293.pccard.wrapper.AEPatternWrapper;
+import yuuki1293.pccard.TagUtils;
+import yuuki1293.pccard.wrapper.IAEPattern;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class PatternProviderLogicImpl {
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public static IPatternDetails updatePatterns(IPatternProviderLogicMixin self, IPatternDetails detail) {
+    public static IPatternDetails updatePatterns(IPatternProviderLogicMixin self, IPatternDetails detail, ItemStack stack) {
         if (self.pCCard$hasPCCard()) {
-            if (detail instanceof AEProcessingPattern) {
-                final var definition = detail.getDefinition();
-                final var originalInputs = detail.getInputs();
-                final var originalOutputs = detail.getOutputs();
+            var newStack = stack.copy();
+            var inputs = TagUtils.getInputsFromPattern(newStack);
 
-                var inputs = Arrays.stream(originalInputs)
-                    .filter(Objects::nonNull)
-                    .filter(x -> !x.getPossibleInputs()[0].what().getId().equals(CompetitionFixer.PC.get().getId())) // Check item
-                    .toArray(IPatternDetails.IInput[]::new);
+            if (inputs.isPresent()) {
+                var number = TagUtils.getCircuitNumber(inputs.get()).orElse(0);
+                TagUtils.removeCircuit(inputs.get());
 
-                if (!Arrays.equals(inputs, originalInputs)) {
-                    var recipeStack = Arrays.stream(originalInputs)
-                        .filter(Objects::nonNull)
-                        .filter(x -> x.getPossibleInputs()[0].what().getId().equals(CompetitionFixer.PC.get().getId()))
-                        .findFirst()
-                        .map(x -> x.getPossibleInputs()[0].what().wrapForDisplayOrFilter())
-                        .orElse(ItemStack.EMPTY);
-                    var number = IntCircuitBehaviour.getCircuitConfiguration(recipeStack);
-
-                    return new AEPatternWrapper(definition, inputs, originalOutputs, number);
+                detail = PatternDetailsHelper.decodePattern(newStack, self.pCCard$getBlockEntity().getLevel());
+                if (detail instanceof IAEPattern wrapper) {
+                    wrapper.pCCard$setNumber(number);
                 }
             }
         }
@@ -50,7 +40,7 @@ public class PatternProviderLogicImpl {
     }
 
     public static void setPCNumber(IPatternProviderLogicMixin self, IPatternDetails patternDetails) {
-        if (self.pCCard$hasPCCard() && patternDetails instanceof AEPatternWrapper patternDetailsW) {
+        if (self.pCCard$hasPCCard() && patternDetails instanceof IAEPattern patternDetailsW) {
             var be = self.pCCard$getBlockEntity();
             var level = be.getLevel();
             if (level == null) return;
@@ -66,10 +56,10 @@ public class PatternProviderLogicImpl {
         }
     }
 
-    private static void setInvNumber(NotifiableItemStackHandler inv, AEPatternWrapper details) {
+    private static void setInvNumber(NotifiableItemStackHandler inv, IAEPattern details) {
         var machineStack = CompetitionFixer.PC.get().asStack();
 
-        var number = details.getNumber();
+        var number = details.pCCard$getNumber();
         IntCircuitBehaviour.setCircuitConfiguration(machineStack, number);
         inv.setStackInSlot(0, machineStack);
     }

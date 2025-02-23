@@ -7,6 +7,7 @@ import appeng.api.upgrades.IUpgradeableObject;
 import appeng.api.upgrades.UpgradeInventories;
 import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.helpers.patternprovider.PatternProviderLogicHost;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -94,8 +95,8 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
     }
 
     @ModifyVariable(method = "updatePatterns", at = @At("STORE"), ordinal = 0)
-    private IPatternDetails updatePatterns(IPatternDetails detail) {
-        return PatternProviderLogicImpl.updatePatterns(this, detail);
+    private IPatternDetails updatePatterns(IPatternDetails detail, @Local ItemStack stack) {
+        return PatternProviderLogicImpl.updatePatterns(this, detail, stack);
     }
 
     @Override
@@ -109,7 +110,7 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
     }
 
     @Override
-    public Direction pCCard$getSendDirection(){
+    public Direction pCCard$getSendDirection() {
         if (this.sendDirection == null)
             return pCCard$sendDirection;
         return this.sendDirection;
