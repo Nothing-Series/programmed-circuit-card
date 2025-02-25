@@ -124,7 +124,7 @@ dependencies {
     implementation fg.deobf("appeng:appliedenergistics2-forge:${ae2_version}") // AE2
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") // JEI
     compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}:api") // EMI
-    runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}") // EMI
+//    runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}") // EMI
     compileOnly fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}") // Registrate
     compileOnly fg.deobf("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false } // ldlib
     compileOnly fg.deobf("curse.maven:advancedae-1084104:${adae_version}") // Advanced AE
@@ -136,6 +136,8 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:applied-flux-965012:${appflux_version}") // Applied Flux
     runtimeOnly fg.deobf("curse.maven:mae2-1028068:${mae2_version}") // MAE2
     runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_version}") // Jade
+    compileOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}:api")
+    runtimeOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}")
 }
 
 tasks.named('processResources', ProcessResources).configure {
