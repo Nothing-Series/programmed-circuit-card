@@ -154,6 +154,12 @@ tasks.named('processResources', ProcessResources).configure {
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
     }
+
+    // copy guide to resources exclude other language
+    from('guide') {
+        exclude '_*/**'
+        into 'assets/pccard/ae2guide'
+    }
 }
 
 mixin {
