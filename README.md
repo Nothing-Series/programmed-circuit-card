@@ -19,3 +19,16 @@ Programmed Circuit Card can be inserted into Pattern Provider. When pushing a re
 - [ExtendedAE](https://www.curseforge.com/minecraft/mc-mods/ex-pattern-provider) (GlodBlock)
 - [AdvancedAE](https://www.curseforge.com/minecraft/mc-mods/advancedae) (pedroksl)
 - [MAE2](https://www.curseforge.com/minecraft/mc-mods/modern-ae2-additions) (AE2Enthusiast)
+
+## Develop
+By executing these tasks, the guide's resource pack can be updated during running.
+### Generate resource pack for guide.
+generate to [build/guides](build/guides)
+```groovy
+gradlew genGuideResources
+```
+### Copy resource packs to run
+copy [build/guides](build/guides) to [run/resourcepacks](run/resourcepacks)
+```groovy
+gradlew copyResourcePacks
+```
