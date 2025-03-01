@@ -23,12 +23,13 @@ Programmed Circuit Card can be inserted into Pattern Provider. When pushing a re
 ## Develop
 By executing these tasks, the guide's resource pack can be updated during running.
 ### Generate resource pack for guide.
-generate to [build/guides](build/guides)
+generate to [build/guides](build/guides).
 ```groovy
 gradlew genGuideResources
 ```
 ### Copy resource packs to run
-copy [build/guides](build/guides) to [run/resourcepacks](run/resourcepacks)
+copy [build/guides](build/guides) to [run/resourcepacks](run/resourcepacks).  
+depends on `genGuideResources`
 ```groovy
 gradlew copyResourcePacks
 ```
