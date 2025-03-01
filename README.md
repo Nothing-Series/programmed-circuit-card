@@ -21,7 +21,7 @@ Programmed Circuit Card can be inserted into Pattern Provider. When pushing a re
 - [MAE2](https://www.curseforge.com/minecraft/mc-mods/modern-ae2-additions) (AE2Enthusiast)
 
 ## Develop
-By executing these tasks, the guide's resource pack can be updated during running.
+By executing these tasks, the guide's resource pack can be updated during running. don't forget F3+T
 ### Generate resource pack for guide.
 generate to [build/guides](build/guides).
 ```groovy
