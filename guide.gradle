@@ -37,7 +37,7 @@ tasks.register('genGuideResources') {
  * language to resource pack file name
  */
 def resourcePackName(String language) {
-    return "${rootProject.name} ${project.version} ${language}"
+    return "${language} ${rootProject.name} ${project.version}"
 }
 
 /**
