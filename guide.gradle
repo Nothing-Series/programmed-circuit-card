@@ -55,7 +55,6 @@ static def copyTemplate(String packName, File to) {
  */
 static def copyGuide(File packDir, File langDir) {
     var guideRoot = new File(packDir.absolutePath, 'assets/pccard/ae2guide')
-    print(guideRoot)
     FileUtils.copyDirectory(langDir, guideRoot)
 }
 
