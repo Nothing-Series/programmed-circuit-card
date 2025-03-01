@@ -164,6 +164,17 @@ tasks.named('processResources', ProcessResources).configure {
     }
 }
 
+tasks.register('copyResourcePacks', Copy) {
+    from 'build/guides'
+    into 'run/resourcepacks'
+}
+
+tasks.configureEach {
+    if (it.name.equals('prepareRunClientCompile')) {
+        it.dependsOn 'copyResourcePacks'
+    }
+}
+
 mixin {
     add sourceSets.main, 'mixins.pccard.refmap.json'
     config 'mixins.pccard.json'
