@@ -1,6 +1,6 @@
 ---
 navigation:
-  title: Programmed Circuit Card 導入
+  title: Programmed Circuit Card導入
   position: 80
 ---
 
