@@ -169,6 +169,7 @@ tasks.named('processResources', ProcessResources).configure {
 tasks.register('copyResourcePacks', Copy) {
     from 'build/guides'
     into 'run/resourcepacks'
+    inputs.files(fileTree('guide'))
     dependsOn 'genGuideResources'
 }
 
