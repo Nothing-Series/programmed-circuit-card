@@ -162,6 +162,8 @@ tasks.named('processResources', ProcessResources).configure {
         exclude '_*/**'
         into 'assets/pccard/ae2guide'
     }
+
+    dependsOn 'genGuideResources'
 }
 
 tasks.register('copyResourcePacks', Copy) {
