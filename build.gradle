@@ -13,8 +13,6 @@ plugins {
     id 'org.jetbrains.changelog' version '2.2.1'
 }
 
-apply from: 'guide.gradle'
-
 version = "$minecraft_version-$mod_version"
 group = mod_group_id
 
@@ -155,27 +153,6 @@ tasks.named('processResources', ProcessResources).configure {
 
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
-    }
-
-    // copy guide to resources exclude other language
-    from('guide') {
-        exclude '_*/**'
-        into 'assets/pccard/ae2guide'
-    }
-
-    dependsOn 'genGuideResources'
-}
-
-tasks.register('copyResourcePacks', Copy) {
-    from 'build/guides'
-    into 'run/resourcepacks'
-    inputs.files(fileTree('guide'))
-    dependsOn 'genGuideResources'
-}
-
-tasks.configureEach {
-    if (it.name.equals('prepareRunClientCompile')) {
-        it.dependsOn 'copyResourcePacks'
     }
 }
 
