@@ -14,6 +14,7 @@ item_ids:
 
 このカードが挿入されているパターンプロバイダーは、プログラム回路をGreg機械にプッシュする代わりに回路番号を変更します。
 
+## レシピ
 <RecipeFor id="pccard:card_programmed_circuit" />
 
 ## パターン登録
