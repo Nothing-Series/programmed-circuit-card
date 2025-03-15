@@ -4,7 +4,7 @@ navigation:
   position: 80
 ---
 
-![Logo](../pic/logo.png)
+![Logo](_ja_jp/pic/logo.png)
 
 このmodは[GregTech](https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern)
 と[AE2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2)のアドオンです。  
@@ -12,12 +12,12 @@ navigation:
 
 ## アイテム
 
-* [プログラム回路カード](card_programmed_circuit_items.md)
+* [プログラム回路カード](pccard_intro/card_programmed_circuit_items.md)
 
 ## その他のページ
 
-* [ヒント](tips.md)
-* [他modとの統合](other_mod.md)
+* [ヒント](pccard_intro/tips.md)
+* [他modとの統合](pccard_intro/other_mod.md)
 
 バグや機能不足がありましたか？  
 報告してください:  

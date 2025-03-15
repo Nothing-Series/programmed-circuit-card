@@ -1,6 +1,6 @@
 ---
 navigation:
-  parent: pccard_intro/pccard_intro-index.md
+  parent: pccard_intro/index.md
   title: 他mod連携
   icon: pccard:card_programmed_circuit
   position: 30

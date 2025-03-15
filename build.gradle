@@ -45,6 +45,10 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', mod_id
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            property 'guideme.pccard.guide.sources', file('guidebook').absolutePath
+            property 'guideme.pccard.guide.sourcesNamespace', mod_id
+            property 'guideme.showOnStartup', 'pccard:index.md'
         }
 
         server {

@@ -1,0 +1,26 @@
+{
+    DataVersion: 3465,
+    size: [5, 2, 3],
+    data: [
+        {pos: [0, 0, 0], state: "gtceu:mv_input_bus{facing:east,server_tick:false}", nbt: {ForgeCaps: {}, circuitInventory: {isDistinct: 0b, storage: {Items: [], Size: 1}}, cover: {}, id: "gtceu:mv_input_bus", inventory: {isDistinct: 0b, storage: {Items: [], Size: 9}}, owner: {UUID: [I; 940439953, -167562164, -1601161573, -1389718966], type: 0}, paintingColor: -1, workingEnabled: 1b}},
+        {pos: [0, 0, 1], state: "gtceu:large_scale_assembler_casing"},
+        {pos: [1, 0, 0], state: "ae2:cable_bus{light_level:0,waterlogged:false}", nbt: {ForgeCaps: {}, cable: {gn: {p: 0}, id: "ae2:green_smart_cable", visual: {channelsEast: 8, channelsUp: 8, connections: ["up", "east"], missingChannel: 0b, powered: 0b}}, hasRedstone: 2, id: "ae2:cable_bus", visual: {}, west: {access: "READ_WRITE", filter_on_extract: "YES", fuzzy_mode: "IGNORE_ALL", gn: {p: 0}, id: "ae2:storage_bus", priority: 0, storage_filter: "EXTRACTABLE_ONLY", visual: {missingChannel: 0b, powered: 0b}}}},
+        {pos: [2, 0, 0], state: "ae2:cable_bus{light_level:0,waterlogged:false}", nbt: {ForgeCaps: {}, cable: {gn: {p: 0}, id: "ae2:green_smart_cable", visual: {channelsUp: 8, channelsWest: 8, connections: ["up", "west"], missingChannel: 0b, powered: 0b}}, east: {fuzzy_mode: "IGNORE_ALL", gn: {p: 0}, id: "ae2:cable_interface", priority: 0, visual: {missingChannel: 0b, powered: 0b}}, hasRedstone: 2, id: "ae2:cable_bus", visual: {}}},
+        {pos: [3, 0, 0], state: "ae2:pattern_provider{push_direction:west}", nbt: {ForgeCaps: {}, blocking_mode: "NO", id: "ae2:pattern_provider", lock_crafting_mode: "NONE", pattern_access_terminal: "YES", priority: 0, proxy: {p: 0}, returnInv: [], sendList: [], visual: {}}},
+        {pos: [4, 0, 0], state: "ae2:cable_bus{light_level:0,waterlogged:false}", nbt: {ForgeCaps: {}, cable: {gn: {p: 0}, id: "ae2:blue_smart_cable", visual: {channelsWest: 8, connections: ["west"], missingChannel: 0b, powered: 0b}}, hasRedstone: 2, id: "ae2:cable_bus", visual: {}}},
+        {pos: [0, 1, 0], state: "gtceu:mv_input_hatch{facing:east,server_tick:false}", nbt: {ForgeCaps: {}, circuitInventory: {isDistinct: 0b, storage: {Items: [], Size: 1}}, cover: {}, id: "gtceu:mv_input_hatch", owner: {UUID: [I; 940439953, -167562164, -1601161573, -1389718966], type: 0}, paintingColor: -1, tank: {isDistinct: 0b, lockedFluid: {Amount: 0, FluidName: "minecraft:empty"}, storages: [{p: {Amount: 0, FluidName: "minecraft:empty"}, t: 11b}]}, workingEnabled: 1b}},
+        {pos: [0, 1, 1], state: "gtceu:large_assembler{facing:east,server_tick:false,upwards_facing:north}", nbt: {ForgeCaps: {}, activeRecipeType: 0, chance_cache: {block_state: [], cwu: [], eu: [], fluid: [], item: []}, cover: {}, id: "gtceu:large_assembler", isFlipped: 0b, isFormed: 1b, isMuffled: 0b, owner: {UUID: [I; 940439953, -167562164, -1601161573, -1389718966], type: 0}, paintingColor: -1, recipeLogic: {consecutiveRecipes: 0, duration: 0, fuelMaxTime: 0, fuelTime: 0, isActive: 0b, progress: 0, status: "IDLE", suspendAfterFinish: 0b, totalContinuousRunningTime: 0L}}},
+        {pos: [1, 1, 0], state: "ae2:cable_bus{light_level:0,waterlogged:false}", nbt: {ForgeCaps: {}, cable: {gn: {p: 0}, id: "ae2:green_smart_cable", visual: {channelsDown: 8, channelsEast: 8, connections: ["down", "east"], missingChannel: 0b, powered: 0b}}, hasRedstone: 2, id: "ae2:cable_bus", visual: {}, west: {access: "READ_WRITE", filter_on_extract: "YES", fuzzy_mode: "IGNORE_ALL", gn: {p: 0}, id: "ae2:storage_bus", priority: 0, storage_filter: "EXTRACTABLE_ONLY", visual: {missingChannel: 0b, powered: 0b}}}},
+        {pos: [2, 1, 0], state: "ae2:cable_bus{light_level:0,waterlogged:false}", nbt: {ForgeCaps: {}, cable: {gn: {p: 0}, id: "ae2:green_smart_cable", visual: {channelsDown: 8, channelsWest: 8, connections: ["down", "west"], missingChannel: 0b, powered: 0b}}, east: {gn: {p: 0}, id: "ae2:quartz_fiber", outer: {p: 0}, visual: {missingChannel: 0b, powered: 0b}}, hasRedstone: 2, id: "ae2:cable_bus", visual: {}}},
+        {pos: [3, 1, 0], state: "ae2:cable_bus{light_level:0,waterlogged:false}", nbt: {ForgeCaps: {}, cable: {gn: {p: 0}, id: "ae2:blue_smart_cable", visual: {channelsDown: 8, channelsWest: 8, connections: ["down", "west"], missingChannel: 0b, powered: 0b}}, hasRedstone: 2, id: "ae2:cable_bus", visual: {}}},
+    ],
+    entities: [],
+    palette: [
+        "gtceu:large_scale_assembler_casing",
+        "gtceu:mv_input_bus{facing:east,server_tick:false}",
+        "ae2:cable_bus{light_level:0,waterlogged:false}",
+        "ae2:pattern_provider{push_direction:west}",
+        "gtceu:mv_input_hatch{facing:east,server_tick:false}",
+        "gtceu:large_assembler{facing:east,server_tick:false,upwards_facing:north}"
+    ]
+}
