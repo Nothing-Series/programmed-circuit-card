@@ -13,7 +13,7 @@ It ports the Programmed Circuit Card from [Neeve's AE2](https://www.curseforge.c
 
 * [Programmed Circuit Card](pccard_intro/card_programmed_circuit_items.md)
 
-## その他のページ
+## Other Pages
 
 * [Tips](pccard_intro/tips.md)
 * [Integration with Other Mods](pccard_intro/other_mod.md)

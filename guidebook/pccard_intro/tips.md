@@ -1,35 +1,38 @@
 ---
 navigation:
   parent: index.md
-  title: ヒント
+  title: Tips
   icon: minecraft:writable_book
   position: 20
 ---
 
-# ヒント
-## マルチブロックでアイテムと液体を含むレシピをクラフトしたい
-一旦バッファに搬出してパイプで分別する方法は、よく見られるアンチパターンです。  
-サブネットワークを使うことでこれらのクラフトをうまく行えます。このmodはサブネットワーク先の機械の回路番号も変更します。  
-次の図を見てください。
+# Tips
+
+## Crafting Recipes with Both Items and Fluids in a Multiblock
+
+Using a buffer to extract everything and then sorting with pipes is a common anti-pattern.  
+Instead, you can use a subnet to handle these crafting recipes more efficiently.  
+This mod also changes the circuit number of machines within the subnet.  
+Take a look at the following diagram.
 
 <GameScene zoom="4" background="transparent" interactive={true}>
 <ImportStructure src="../structure/provider_interface_storage.snbt" />
 
 <BoxAnnotation color="#dddddd" min="2.7 0 0" max="3 1 1">
-        インターフェース
+        Interface
   </BoxAnnotation>
 
 <BoxAnnotation color="#dddddd" min="1 0 0" max="1.3 2 1">
-        ストレージバス
+        Storage Bus
   </BoxAnnotation>
 
 <BoxAnnotation color="#dddddd" min="0 0 0" max="1 2 1">
-        バス・ハッチ
+        Bus & Hatch
   </BoxAnnotation>
 
 <IsometricCamera yaw="200" pitch="30" />
 </GameScene>
 
-全てのストレージバスの「アクセスできないアイテムの報告」を「はい」にしておきます。  
-無効のままだとブロッキングモードがうまく働かないことがあります。  
+Set "Report inaccessible items" to "Yes" for all storage buses.  
+If left disabled, the blocking mode may not function properly.  
 ![](../pic/storage_bus_setting.png)

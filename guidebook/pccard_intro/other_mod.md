@@ -1,19 +1,24 @@
 ---
 navigation:
   parent: index.md
-  title: 他mod連携
+  title: Integration with Other Mods
   icon: expatternprovider:ex_pattern_provider
   position: 30
 ---
 
-# 他mod連携
+# Integration with Other Mods
+
 ## Extended AE
-* 拡張パターンプロバイダーでの動作。
+* Compatibility with the Extended Pattern Provider.
+
 ## Advanced AE
-* 発展型パターンプロバイダーでの動作。
+* Compatibility with the Advanced Pattern Provider.
+
 ## Modern AE2 Additions (MAE2)
-* パターンP2Pでの動作。
+* Compatibility with Pattern P2P.
+
 ## Applied Flux
-* アップグレードスロットの統合。
+* Integration of the upgrade slot.
+
 ## JEI/EMI
-* レシピ登録でプログラム回路も含まれるように動作を変更。
+* Modified behavior to include the programmed circuit when registering recipes.
