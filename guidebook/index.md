@@ -1,24 +1,22 @@
 ---
 navigation:
-  title: Programmed Circuit Card導入
+  title: Programmed Circuit Card Introduction
   position: 80
 ---
 
-![Logo](_ja_jp/pic/logo.png)
+![Logo](pic/logo.png)
 
-このmodは[GregTech](https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern)
-と[AE2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2)のアドオンです。  
-[Neeve's AE2](https://www.curseforge.com/minecraft/mc-mods/nae2)のProgrammed Circuit Cardをポートします。
+This mod is an addon for [GregTech](https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern) and [AE2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2).  
+It ports the Programmed Circuit Card from [Neeve's AE2](https://www.curseforge.com/minecraft/mc-mods/nae2).
 
-## アイテム
+## Items
 
-* [プログラム回路カード](pccard_intro/card_programmed_circuit_items.md)
+* [Programmed Circuit Card](pccard_intro/card_programmed_circuit_items.md)
 
 ## その他のページ
 
-* [ヒント](pccard_intro/tips.md)
-* [他modとの統合](pccard_intro/other_mod.md)
+* [Tips](pccard_intro/tips.md)
+* [Integration with Other Mods](pccard_intro/other_mod.md)
 
-バグや機能不足がありましたか？  
-報告してください:  
-[GitHub](https://github.com/yuuki1293/ProgrammedCircuitCard)
+Found any bugs or missing features?  
+Report them here: [GitHub](https://github.com/yuuki1293/ProgrammedCircuitCard) [Discord](https://discord.gg/qgKEFnf6v8)

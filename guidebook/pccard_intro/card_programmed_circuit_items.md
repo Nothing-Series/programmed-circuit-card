@@ -1,7 +1,7 @@
 ---
 navigation:
-  parent: pccard_intro/index.md
-  title: プログラム回路カード
+  parent: index.md
+  title: Programmed Circuit Card
   icon: pccard:card_programmed_circuit
   position: 10
 categories:
@@ -10,24 +10,28 @@ item_ids:
   - pccard:card_programmed_circuit
 ---
 
-# プログラム回路カード
-このカードはパターンプロバイダーの機能を変更し、プログラム回路をGreg機械にプッシュする代わりに回路番号を変更します。
+# Programmed Circuit Card
 
-## パターン登録
+A Pattern Provider with this card inserted will change the circuit number instead of pushing a programmed circuit into GregTech machines.
 
-パターンにプログラム回路を含めてください。ネットワーク内にプログラム回路がなくても動作します。  
-いちいち手動で配置するのは面倒なので、JEIやEMIからレシピを登録するとプログラム回路も含まれるように動作が変更されています。  
-もしプログラム回路が配置されない、またはこの機能を無効化したい場合はコンフィグのjei_integrationを確認してください。  
-![パターン登録](../pic/encode_pattern.png)
+## Recipe
+<RecipeFor id="pccard:card_programmed_circuit" />
 
-## パターンプロバイダー
+## Pattern Registration
 
-パターンプロバイダーのアップグレードスロットにプログラム回路カードを配置します。  
-**パターンプロバイダーの設定を忘れずにブロッキングモードにしましょう。**  
-プログラム回路が含まれていないパターンは回路番号0として扱われることに注意してください。  
-![パターンプロバイダー](../pic/pattern_provider.png)
+Include the programmed circuit in the pattern. It will work even if there is no programmed circuit in the network.  
+Manually placing it every time is inconvenient, so the behavior has been modified to include the programmed circuit when registering recipes from JEI or EMI.  
+If the programmed circuit is not being placed, or if you want to disable this feature, check the `jei_integration` setting in the config.  
+![Pattern Registration](../pic/encode_pattern.png)
 
-## 注文
+## Pattern Provider
 
-通常のアイテムと同じように注文できます。クラフトプランにはプログラム回路は表示されません。  
-もし表示されていたら、パターンプロバイダーにプログラム回路カードがインストールされているか確認してください。
+Place the Programmed Circuit Card in the upgrade slot of the Pattern Provider.  
+**Don't forget to set the Pattern Provider to blocking mode.**  
+Note that patterns without a programmed circuit will be treated as circuit number 0.  
+![Pattern Provider](../pic/pattern_provider.png)
+
+## Crafting Order
+
+You can order it just like a normal item. The programmed circuit will not appear in the crafting plan.  
+If it does appear, check whether the Programmed Circuit Card is installed in the Pattern Provider.
