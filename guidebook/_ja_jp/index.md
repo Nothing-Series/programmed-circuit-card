@@ -20,5 +20,4 @@ navigation:
 * [他modとの統合](pccard_intro/other_mod.md)
 
 バグや機能不足がありましたか？  
-報告してください:  
-[GitHub](https://github.com/yuuki1293/ProgrammedCircuitCard)
+報告してください: [GitHub](https://github.com/yuuki1293/ProgrammedCircuitCard) [Discord](https://discord.gg/qgKEFnf6v8)
