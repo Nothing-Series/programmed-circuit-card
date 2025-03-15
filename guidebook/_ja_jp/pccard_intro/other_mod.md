@@ -2,7 +2,7 @@
 navigation:
   parent: index.md
   title: 他mod連携
-  icon: pccard:card_programmed_circuit
+  icon: expatternprovider:ex_pattern_provider
   position: 30
 ---
 

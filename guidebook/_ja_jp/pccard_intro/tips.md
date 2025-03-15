@@ -2,7 +2,7 @@
 navigation:
   parent: index.md
   title: ヒント
-  icon: pccard:card_programmed_circuit
+  icon: minecraft:writable_book
   position: 20
 ---
 
