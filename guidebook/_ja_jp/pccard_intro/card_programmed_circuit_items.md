@@ -1,6 +1,6 @@
 ---
 navigation:
-  parent: pccard_intro/index.md
+  parent: index.md
   title: プログラム回路カード
   icon: pccard:card_programmed_circuit
   position: 10
