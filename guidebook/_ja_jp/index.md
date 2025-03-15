@@ -4,7 +4,7 @@ navigation:
   position: 80
 ---
 
-![Logo](_ja_jp/pic/logo.png)
+![Logo](pic/logo.png)
 
 このmodは[GregTech](https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern)
 と[AE2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2)のアドオンです。  
