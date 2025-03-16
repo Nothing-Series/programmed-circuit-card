@@ -5,6 +5,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
+import java.util.List;
+
 public interface IPatternProviderLogicMixin {
     /**
      *  NOTE: call after {@code pushPattern}
@@ -16,7 +18,7 @@ public interface IPatternProviderLogicMixin {
     /**
      * @return machine block pos
      */
-    BlockPos pCCard$getSendPos();
+    List<BlockPos> pCCard$getSendPos();
 
     /**
      * @return send direction
