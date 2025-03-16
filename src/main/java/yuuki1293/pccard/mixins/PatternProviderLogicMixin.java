@@ -12,6 +12,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -105,8 +106,8 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
     }
 
     @Override
-    public BlockPos pCCard$getSendPos() {
-        return PatternProviderLogicImpl.getSendPos(this, PatternProviderLogic.class);
+    public List<BlockPos> pCCard$getSendPos() {
+        return PatternProviderLogicImpl.getSendPos(pCCard$getLevel(), this, PatternProviderLogic.class);
     }
 
     @Override
@@ -124,6 +125,11 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
     @Override
     public BlockEntity pCCard$getBlockEntity() {
         return this.host.getBlockEntity();
+    }
+
+    @Unique
+    private Level pCCard$getLevel() {
+        return pCCard$getBlockEntity().getLevel();
     }
 
     // This is necessary?
