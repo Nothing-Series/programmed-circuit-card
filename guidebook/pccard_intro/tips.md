@@ -10,8 +10,7 @@ navigation:
 
 ## Crafting Recipes with Both Items and Fluids in a Multiblock
 
-Using a buffer to extract everything and then sorting with pipes is a common anti-pattern.  
-Instead, you can use a subnet to handle these crafting recipes more efficiently.  
+Yu can use a subnet to handle these crafting recipes more efficiently.  
 This mod also changes the circuit number of machines within the subnet.  
 Take a look at the following diagram.
 
