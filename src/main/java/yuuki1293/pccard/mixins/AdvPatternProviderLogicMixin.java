@@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.pedroksl.advanced_ae.common.logic.AdvPatternProviderLogic;
 import net.pedroksl.advanced_ae.common.logic.AdvPatternProviderLogicHost;
@@ -107,8 +108,8 @@ public abstract class AdvPatternProviderLogicMixin implements IUpgradeableObject
     }
 
     @Override
-    public BlockPos pCCard$getSendPos() {
-        return PatternProviderLogicImpl.getSendPos(this, AdvPatternProviderLogic.class);
+    public List<BlockPos> pCCard$getSendPos() {
+        return PatternProviderLogicImpl.getSendPos(pCCard$getLevel(), this, AdvPatternProviderLogic.class);
     }
 
     @Override
@@ -126,6 +127,11 @@ public abstract class AdvPatternProviderLogicMixin implements IUpgradeableObject
     @Override
     public BlockEntity pCCard$getBlockEntity() {
         return this.host.getBlockEntity();
+    }
+
+    @Unique
+    private Level pCCard$getLevel() {
+        return pCCard$getBlockEntity().getLevel();
     }
 
     // This is necessary?
