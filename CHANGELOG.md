@@ -4,6 +4,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 ## [Unreleased]
 ### Added
  - Add guide. [#12](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/12)
+ - it doesn't work when combine it with AE2 subnet [#10](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/10)
 
 ## [1.0.11] - 2025-02-23
 ### Fixed
