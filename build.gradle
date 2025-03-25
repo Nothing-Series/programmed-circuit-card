@@ -151,7 +151,8 @@ tasks.named('processResources', ProcessResources).configure {
             loader_version_range: loader_version_range,
             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors         : mod_authors, mod_description: mod_description,
-            ae2_version_range   : ae2_version_range, gtm_version_range: gtm_version_range
+            ae2_version_range   : ae2_version_range, gtm_version_range: gtm_version_range,
+            guideme_version_range: guideme_version_range
     ]
     inputs.properties replaceProperties
 
@@ -235,6 +236,7 @@ curseforge {
             relations {
                 requiredDependency 'applied-energistics-2'
                 requiredDependency 'gregtechceu-modern'
+                requiredDependency 'guideme'
                 optionalDependency 'ex-pattern-provider'
                 optionalDependency 'advancedae'
                 optionalDependency 'modern-ae2-additions'
@@ -260,6 +262,7 @@ modrinth {
     dependencies {
         required.project 'ae2'
         required.project 'gregtechceu-modern'
+        required.project 'guideme'
         optional.project 'extended-ae'
         optional.project 'advancedae'
         optional.project 'modern-ae2-additions'
