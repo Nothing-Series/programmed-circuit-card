@@ -2,6 +2,9 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
+### Added
+ - Localize tooltip.
+
 ### Fixed
  - No guide included in the release [#14](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/14)
 
