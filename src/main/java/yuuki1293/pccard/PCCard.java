@@ -57,7 +57,7 @@ public class PCCard {
         Upgrades.add(item, AEBlocks.PATTERN_PROVIDER, 1, patternProviderGroup);
 
         // Extended AE Pattern Provider
-        var exPatternProviderGroup = "ME Extended Pattern Provider";
+        var exPatternProviderGroup = "gui.expatternprovider.ex_pattern_provider";
         var resourceExBE = new ResourceLocation("expatternprovider", "ex_pattern_provider");
         var resourceExPart = new ResourceLocation("expatternprovider", "ex_pattern_provider_part");
         var patternProviderExBE = ForgeRegistries.BLOCKS.getValue(resourceExBE);
@@ -69,7 +69,7 @@ public class PCCard {
 
         // Advanced AE Pattern Provider
         {
-            var adPatternProviderGroup = "ME Advanced Pattern Provider";
+            var adPatternProviderGroup = "gui.advanced_ae.AdvPatternProvider";
             var namespaceAd = "advanced_ae";
             var resourceAdBE = new ResourceLocation(namespaceAd, "small_adv_pattern_provider");
             var resourceAdPart = new ResourceLocation(namespaceAd, "small_adv_pattern_provider_part");
