@@ -13,7 +13,7 @@ import yuuki1293.pccard.IPatternProviderLogicMixin;
 @Mixin(value = CraftingCpuLogic.class, remap = false)
 public abstract class CraftingCPULogicMixin {
     @Redirect(method = "executeCrafting", at = @At(value = "INVOKE", target = "Lappeng/api/networking/crafting/ICraftingProvider;pushPattern(Lappeng/api/crafting/IPatternDetails;[Lappeng/api/stacks/KeyCounter;)Z"))
-    private boolean pushPattern(ICraftingProvider instance, IPatternDetails patternDetails, KeyCounter[] keyCounters, @Local ICraftingProvider provider) {
+    private boolean pushPattern(ICraftingProvider provider, IPatternDetails patternDetails, KeyCounter[] keyCounters) {
         if (provider.pushPattern(patternDetails, keyCounters)) {
             if (provider instanceof IPatternProviderLogicMixin logicMixin)
                 logicMixin.pCCard$setPCNumber(patternDetails);

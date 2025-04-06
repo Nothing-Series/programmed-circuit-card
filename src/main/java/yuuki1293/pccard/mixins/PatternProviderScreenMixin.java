@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import yuuki1293.pccard.CompetitionFixer;
+import yuuki1293.pccard.xmod.CompetitionFixer;
 import yuuki1293.pccard.IPatternProviderMenuMixin;
 
 import java.util.ArrayList;

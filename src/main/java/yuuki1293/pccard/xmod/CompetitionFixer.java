@@ -1,4 +1,4 @@
-package yuuki1293.pccard;
+package yuuki1293.pccard.xmod;
 
 import com.google.common.base.Suppliers;
 import net.minecraftforge.fml.ModList;
