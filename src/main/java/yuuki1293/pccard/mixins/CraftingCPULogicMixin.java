@@ -4,11 +4,10 @@ import appeng.api.crafting.IPatternDetails;
 import appeng.api.networking.crafting.ICraftingProvider;
 import appeng.api.stacks.KeyCounter;
 import appeng.crafting.execution.CraftingCpuLogic;
-import com.llamalad7.mixinextras.sugar.Local;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import yuuki1293.pccard.IPatternProviderLogicMixin;
+import yuuki1293.pccard.wrapper.IPatternProviderLogicMixin;
 
 @Mixin(value = CraftingCpuLogic.class, remap = false)
 public abstract class CraftingCPULogicMixin {

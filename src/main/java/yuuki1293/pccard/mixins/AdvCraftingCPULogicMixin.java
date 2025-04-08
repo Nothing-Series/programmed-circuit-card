@@ -7,7 +7,7 @@ import net.pedroksl.advanced_ae.common.logic.AdvCraftingCPULogic;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import yuuki1293.pccard.IPatternProviderLogicMixin;
+import yuuki1293.pccard.wrapper.IPatternProviderLogicMixin;
 
 @Mixin(value = AdvCraftingCPULogic.class, remap = false)
 public class AdvCraftingCPULogicMixin {

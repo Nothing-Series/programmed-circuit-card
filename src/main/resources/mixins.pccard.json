@@ -13,7 +13,6 @@
     "AdvProcessingPatternMixin",
     "Ae2PatternTerminalHandlerMixin",
     "AEProcessingPatternMixin",
-    "ContainerExPatternProviderMixin",
     "CraftingCPULogicMixin",
     "GenericEntryStackHelperJEIMixin",
     "PatternProviderLogicHostMixin",
@@ -23,6 +22,7 @@
   ],
   "client": [
     "AdvPatternProviderScreenMixin",
-    "PatternProviderScreenMixin"
+    "PatternProviderScreenMixin",
+    "SmallAdvPatternProviderScreenMixin"
   ]
 }

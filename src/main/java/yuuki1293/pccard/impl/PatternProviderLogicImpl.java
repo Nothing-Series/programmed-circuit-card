@@ -18,7 +18,7 @@ import net.minecraft.util.Tuple;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.slf4j.Logger;
-import yuuki1293.pccard.IPatternProviderLogicMixin;
+import yuuki1293.pccard.wrapper.IPatternProviderLogicMixin;
 import yuuki1293.pccard.TagUtils;
 import yuuki1293.pccard.wrapper.IAEPattern;
 

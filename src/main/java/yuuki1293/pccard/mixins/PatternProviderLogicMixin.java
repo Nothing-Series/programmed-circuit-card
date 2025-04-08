@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import yuuki1293.pccard.xmod.CompetitionFixer;
-import yuuki1293.pccard.IPatternProviderLogicMixin;
+import yuuki1293.pccard.wrapper.IPatternProviderLogicMixin;
 import yuuki1293.pccard.PCCard;
 import yuuki1293.pccard.impl.PatternProviderLogicImpl;
 

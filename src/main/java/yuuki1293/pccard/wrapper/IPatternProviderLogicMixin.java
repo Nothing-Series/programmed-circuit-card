@@ -1,4 +1,4 @@
-package yuuki1293.pccard;
+package yuuki1293.pccard.wrapper;
 
 import appeng.api.crafting.IPatternDetails;
 import net.minecraft.core.BlockPos;

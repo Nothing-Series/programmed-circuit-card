@@ -3,6 +3,7 @@ package yuuki1293.pccard.mixins;
 import appeng.api.upgrades.Upgrades;
 import appeng.client.gui.AEBaseScreen;
 import appeng.client.gui.style.ScreenStyle;
+import appeng.client.gui.widgets.ToolboxPanel;
 import appeng.client.gui.widgets.UpgradesPanel;
 import appeng.core.localization.GuiText;
 import appeng.menu.SlotSemantics;
@@ -16,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import yuuki1293.pccard.xmod.CompetitionFixer;
-import yuuki1293.pccard.IPatternProviderMenuMixin;
+import yuuki1293.pccard.wrapper.IPatternProviderMenuMixin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,9 @@ abstract public class AdvPatternProviderScreenMixin extends AEBaseScreen<AdvPatt
         this.widgets.add("upgrades", new UpgradesPanel(
             menu.getSlots(SlotSemantics.UPGRADE),
             this::pCCard$getCompatibleUpgrades));
+        if (((IPatternProviderMenuMixin) menu).pCCard$getToolbox().isPresent()) {
+            this.widgets.add("toolbox", new ToolboxPanel(style, ((IPatternProviderMenuMixin) menu).pCCard$getToolbox().getName()));
+        }
     }
 
     @Unique
