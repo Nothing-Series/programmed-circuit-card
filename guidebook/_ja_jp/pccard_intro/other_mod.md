@@ -11,6 +11,8 @@ navigation:
 * 拡張パターンプロバイダーでの動作。
 ## Advanced AE
 * 発展型パターンプロバイダーでの動作。
+## Expanded AE
+* 拡大型パターンプロバイダーでの動作
 ## Modern AE2 Additions (MAE2)
 * パターンP2Pでの動作。
 ## Applied Flux
