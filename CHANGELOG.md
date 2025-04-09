@@ -1,6 +1,15 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [1.0.14] - 2025-04-09
+### Added
+ - Add note about multiple pattern providers on blocking mode to the guide. [#18](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/18)
+ - Support Expanded AE [#20](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/20)
+
+### Fixed
+ - Wrong GTM version range (1.6.0 and above now) [#17](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/17)
+ - Tool Box not showing [#19](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/19)
+
 ## [1.0.13] - 2025-03-25
 ### Added
  - Localize tooltip.
