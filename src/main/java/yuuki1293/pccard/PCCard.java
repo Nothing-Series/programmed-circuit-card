@@ -86,6 +86,20 @@ public class PCCard {
                 Upgrades.add(item, patternProviderAdExPart, 1, adPatternProviderGroup);
             }
         }
+
+        // Expanded AE Pattern Provider
+        {
+            var expPatternProviderGroup = "gui.expandedae.exp_pattern_provider";
+            var namespaceExp = "expandedae";
+            var resourceExpBE = new ResourceLocation(namespaceExp, "exp_pattern_provider");
+            var resourceExpPart = new ResourceLocation(namespaceExp, "exp_pattern_provider_part");
+            var patternProviderExpBE = ForgeRegistries.BLOCKS.getValue(resourceExpBE);
+            var patternProviderExpPart = ForgeRegistries.ITEMS.getValue(resourceExpPart);
+            if (patternProviderExpBE != null && patternProviderExpPart != null) {
+                Upgrades.add(item, patternProviderExpBE, 1, expPatternProviderGroup);
+                Upgrades.add(item, patternProviderExpPart, 1, expPatternProviderGroup);
+            }
+        }
     }
 
     @SubscribeEvent
