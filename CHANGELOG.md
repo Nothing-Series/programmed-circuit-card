@@ -1,6 +1,11 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [1.0.15] - 2025-05-06
+### Fixed
+- Mod causing crash [#21](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/21)
+- ワールドリログ時に進行していた自動クラフトが正常に動作しない [#22](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/22)
+
 ## [1.0.14] - 2025-04-09
 ### Added
  - Add note about multiple pattern providers on blocking mode to the guide. [#18](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/18)
