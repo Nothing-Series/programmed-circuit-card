@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import yuuki1293.pccard.xmod.CompetitionFixer;
@@ -97,9 +97,9 @@ public abstract class AdvPatternProviderLogicMixin implements IUpgradeableObject
         this.pCCard$upgrades.clear();
     }
 
-    @ModifyVariable(method = "updatePatterns", at = @At("STORE"), ordinal = 0)
-    private IPatternDetails updatePatterns(IPatternDetails detail, @Local ItemStack stack) {
-        return PatternProviderLogicImpl.updatePatterns(this, detail, stack);
+    @ModifyArg(method = "updatePatterns", at = @At(value = "INVOKE", target = "Lappeng/api/crafting/PatternDetailsHelper;decodePattern(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;)Lappeng/api/crafting/IPatternDetails;"))
+    private ItemStack updatePatterns(ItemStack stack) {
+        return PatternProviderLogicImpl.updatePatterns(this, stack);
     }
 
     @Override

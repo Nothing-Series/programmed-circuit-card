@@ -7,7 +7,6 @@ import appeng.api.upgrades.IUpgradeableObject;
 import appeng.api.upgrades.UpgradeInventories;
 import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.helpers.patternprovider.PatternProviderLogicHost;
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -27,6 +26,8 @@ import yuuki1293.pccard.PCCard;
 import yuuki1293.pccard.impl.PatternProviderLogicImpl;
 
 import java.util.List;
+
+import static yuuki1293.pccard.NBTs.NBT_CIRCUIT;
 
 @Mixin(value = PatternProviderLogic.class, remap = false, priority = 800)
 public abstract class PatternProviderLogicMixin implements IUpgradeableObject, IPatternProviderLogicMixin {
@@ -95,9 +96,9 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
         this.pCCard$upgrades.clear();
     }
 
-    @ModifyVariable(method = "updatePatterns", at = @At("STORE"), ordinal = 0)
-    private IPatternDetails updatePatterns(IPatternDetails detail, @Local ItemStack stack) {
-        return PatternProviderLogicImpl.updatePatterns(this, detail, stack);
+    @ModifyArg(method = "updatePatterns", at = @At(value = "INVOKE", target = "Lappeng/api/crafting/PatternDetailsHelper;decodePattern(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;)Lappeng/api/crafting/IPatternDetails;"))
+    private ItemStack updatePatterns(ItemStack stack) {
+        return PatternProviderLogicImpl.updatePatterns(this, stack);
     }
 
     @Override

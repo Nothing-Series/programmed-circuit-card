@@ -14,6 +14,7 @@ import com.gregtechceu.gtceu.common.item.IntCircuitBehaviour;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -27,49 +28,57 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
+import static yuuki1293.pccard.NBTs.NBT_CIRCUIT;
+
 public class PatternProviderLogicImpl {
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public static IPatternDetails updatePatterns(IPatternProviderLogicMixin self, IPatternDetails detail, ItemStack stack) {
+    public static ItemStack updatePatterns(IPatternProviderLogicMixin self, ItemStack stack) {
         if (self.pCCard$hasPCCard()) {
             var newStack = stack.copy();
             var inputs = TagUtils.getInputsFromPattern(newStack);
+            var tagRoot = newStack.getTag();
+            if(tagRoot == null) { // if null, create new empty tag
+                tagRoot = new CompoundTag();
+            }
 
             if (inputs.isPresent()) {
                 var number = TagUtils.getCircuitNumber(inputs.get()).orElse(0);
+                tagRoot.putInt(NBT_CIRCUIT, number);
                 TagUtils.removeCircuit(inputs.get());
-
-                detail = PatternDetailsHelper.decodePattern(newStack, self.pCCard$getBlockEntity().getLevel());
-                if (detail instanceof IAEPattern wrapper) {
-                    wrapper.pCCard$setNumber(number);
-                }
             }
+
+            return newStack;
         }
 
-        return detail;
+        return stack;
     }
 
     public static void setPCNumber(IPatternProviderLogicMixin self, IPatternDetails patternDetails) {
-        if (self.pCCard$hasPCCard() && patternDetails instanceof IAEPattern patternDetailsW) {
-            var be = self.pCCard$getBlockEntity();
-            var level = be.getLevel();
-            if (level == null) return;
+        try {
+            if (self.pCCard$hasPCCard() && patternDetails instanceof IAEPattern patternDetailsW) {
+                var be = self.pCCard$getBlockEntity();
+                var level = be.getLevel();
+                if (level == null) return;
 
-            var blockPoses = self.pCCard$getSendPos();
+                var blockPoses = self.pCCard$getSendPos();
 
-            for (var blockPos : blockPoses) {
-                var gtMachine = SimpleTieredMachine.getMachine(level, blockPos);
-                if (gtMachine == null) return; // filter gtMachine
+                for (var blockPos : blockPoses) {
+                    var gtMachine = SimpleTieredMachine.getMachine(level, blockPos);
+                    if (gtMachine == null) return; // filter gtMachine
 
-                if (gtMachine instanceof IHasCircuitSlot machine) {
-                    var inv = machine.getCircuitInventory();
-                    setInvNumber(inv, patternDetailsW);
+                    if (gtMachine instanceof IHasCircuitSlot machine) {
+                        var inv = machine.getCircuitInventory();
+                        setInvNumber(inv, patternDetailsW);
+                    }
                 }
             }
+        } catch (Exception e) {
+            LOGGER.error("Failed to set PC number", e);
         }
     }
 
-    private static void setInvNumber(NotifiableItemStackHandler inv, IAEPattern details) {
+    private static void setInvNumber(NotifiableItemStackHandler inv, IAEPattern details) throws IndexOutOfBoundsException {
         var machineStack = GTItems.PROGRAMMED_CIRCUIT.asStack();
 
         var number = details.pCCard$getNumber();
