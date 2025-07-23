@@ -20,6 +20,9 @@ navigation:
 ## Modern AE2 Additions (MAE2)
 * Compatibility with Pattern P2P.
 
+## MEGA Cells
+* Compatibility MEGA Pattern Provider.
+
 ## Applied Flux
 * Integration of the upgrade slot.
 

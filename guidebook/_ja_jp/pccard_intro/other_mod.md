@@ -15,6 +15,8 @@ navigation:
 * 拡大型パターンプロバイダーでの動作
 ## Modern AE2 Additions (MAE2)
 * パターンP2Pでの動作。
+## MEGA Cells
+* MEGA Pattern Providerでの動作。
 ## Applied Flux
 * アップグレードスロットの統合。
 ## JEI/EMI
