@@ -143,6 +143,7 @@ dependencies {
     compileOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}:api") // GuideME
     runtimeOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}")
     implementation fg.deobf("curse.maven:expanded-ae-1213351:${expanded_ae_version}") // Expanded AE
+    runtimeOnly fg.deobf("curse.maven:mega-cells-622112:${mega_cells_version}")
 }
 
 tasks.named('processResources', ProcessResources).configure {
@@ -241,6 +242,7 @@ curseforge {
                 optionalDependency 'ex-pattern-provider'
                 optionalDependency 'advancedae'
                 optionalDependency 'modern-ae2-additions'
+                optionalDependency 'mega-cells'
                 optionalDependency 'jei'
                 optionalDependency 'emi'
             }
@@ -267,6 +269,7 @@ modrinth {
         optional.project 'extended-ae'
         optional.project 'advancedae'
         optional.project 'modern-ae2-additions'
+        optional.project 'mega'
         optional.project 'jei'
         optional.project 'emi'
     }
