@@ -113,6 +113,7 @@ repositories {
             includeGroup 'curse.maven'
         }
     }
+    maven { url "https://maven.shedaniel.me/" }
     mavenLocal()
 }
 
@@ -143,7 +144,8 @@ dependencies {
     compileOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}:api") // GuideME
     runtimeOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}")
     implementation fg.deobf("curse.maven:expanded-ae-1213351:${expanded_ae_version}") // Expanded AE
-    runtimeOnly fg.deobf("curse.maven:mega-cells-622112:${mega_cells_version}")
+    runtimeOnly fg.deobf("curse.maven:mega-cells-622112:${mega_cells_version}") // Mega Cells
+    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}") // Mega Cells
 }
 
 tasks.named('processResources', ProcessResources).configure {

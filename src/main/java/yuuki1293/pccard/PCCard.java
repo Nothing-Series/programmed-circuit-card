@@ -100,6 +100,20 @@ public class PCCard {
                 Upgrades.add(item, patternProviderExpPart, 1, expPatternProviderGroup);
             }
         }
+
+        // Mega Cells Pattern Provider
+        {
+            var megaPatternProviderGroup = "block.megacells.mega_pattern_provider";
+            var namespaceMega = "megacells";
+            var resourceMegaBE = new ResourceLocation(namespaceMega, "mega_pattern_provider");
+            var resourceMegaPart = new ResourceLocation(namespaceMega, "cable_mega_pattern_provider");
+            var patternProviderMegaBE = ForgeRegistries.BLOCKS.getValue(resourceMegaBE);
+            var patternProviderMegaPart = ForgeRegistries.ITEMS.getValue(resourceMegaPart);
+            if (patternProviderMegaBE != null && patternProviderMegaPart != null) {
+                Upgrades.add(item, patternProviderMegaBE, 1, megaPatternProviderGroup);
+                Upgrades.add(item, patternProviderMegaPart, 1, megaPatternProviderGroup);
+            }
+        }
     }
 
     @SubscribeEvent
