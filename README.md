@@ -11,14 +11,16 @@ Programmed Circuit Card can be inserted into Pattern Provider. When pushing a re
 ![](https://github.com/user-attachments/assets/fa83040f-3244-481b-a941-c63aedd7f713)
 
 ## Credits
-- [GregTechCEu Modern](https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern) (KilaBash)
-- [Applied-Energistics-2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (thetechnici4n)
-- [Neeve's AE2: Extended Life Additions](https://www.curseforge.com/minecraft/mc-mods/nae2) (notmywing)
+- [GregTechCEu Modern](https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern) (by KilaBash)
+- [Applied-Energistics-2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (by thetechnici4n)
+- [Neeve's AE2: Extended Life Additions](https://www.curseforge.com/minecraft/mc-mods/nae2) (by notmywing)
 
 ## Supported Addons
-- [ExtendedAE](https://www.curseforge.com/minecraft/mc-mods/ex-pattern-provider) (GlodBlock)
-- [AdvancedAE](https://www.curseforge.com/minecraft/mc-mods/advancedae) (pedroksl)
-- [MAE2](https://www.curseforge.com/minecraft/mc-mods/modern-ae2-additions) (AE2Enthusiast)
+- [ExtendedAE](https://www.curseforge.com/minecraft/mc-mods/ex-pattern-provider) (by GlodBlock)
+- [AdvancedAE](https://www.curseforge.com/minecraft/mc-mods/advancedae) (by pedroksl)
+- [MAE2](https://www.curseforge.com/minecraft/mc-mods/modern-ae2-additions) (by AE2Enthusiast)
+- [Expanded AE](https://www.curseforge.com/minecraft/mc-mods/expanded-ae) (by Kolja)
+- [MEGA Cells](https://www.curseforge.com/minecraft/mc-mods/mega-cells) (by ninety)
 
 ## Develop
 By executing these tasks, the guide's resource pack can be updated during running. don't forget F3+T
