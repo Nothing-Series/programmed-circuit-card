@@ -35,3 +35,8 @@ depends on `genGuideResources`
 ```groovy
 gradlew copyResourcePacks
 ```
+
+### Make release
+1. commit with "update version to vx.y.z"
+2. add tag "v1.2x.x-x.y.z"
+3. push with tag
