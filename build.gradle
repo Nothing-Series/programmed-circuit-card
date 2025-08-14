@@ -115,6 +115,10 @@ repositories {
         }
     }
     maven { url "https://maven.shedaniel.me/" }
+    maven {
+        name = "Curios"
+        url = uri("https://maven.theillusivec4.top/")
+    }
     mavenLocal()
 }
 
@@ -147,6 +151,9 @@ dependencies {
     implementation fg.deobf("curse.maven:expanded-ae-1213351:${expanded_ae_version}") // Expanded AE
     runtimeOnly fg.deobf("curse.maven:mega-cells-622112:${mega_cells_version}") // Mega Cells
     runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}") // Mega Cells
+    runtimeOnly fg.deobf("curse.maven:applied-energistics-2-wireless-terminals-459929:${wireless_terminals_version}") // AE2 Wireless Terminals
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    runtimeOnly fg.deobf("curse.maven:architectury-api-419699:${architectury_version}")
 }
 
 tasks.named('processResources', ProcessResources).configure {
