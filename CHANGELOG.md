@@ -1,6 +1,10 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [Unreleased]
+### Fixed
+ - MAE2 pattern p2p tunnel is working again. [#30](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/30)
+
 ## [1.0.16] - 2025-07-23
 ### Added
  - MEGA Pattern Provider (MEGA Cells) support.
