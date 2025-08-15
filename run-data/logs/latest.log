@@ -1,0 +1,225 @@
+[2911月2024 05:04:23.839] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /Users/yuuki1293/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, pccard, --all, --output, /Users/yuuki1293/Documents/Programmed Circuit Card/src/generated/resources, --existing, /Users/yuuki1293/Documents/Programmed Circuit Card/src/main/resources, --mixin.config, mixins.pccard.json]
+[2911月2024 05:04:23.850] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.2 by Oracle Corporation; OS Mac OS X arch x86_64 version 14.6.1
+[2911月2024 05:04:24.199] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[2911月2024 05:04:24.336] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/yuuki1293/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23121!/ Service=ModLauncher Env=CLIENT
+[2911月2024 05:04:25.133] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/yuuki1293/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.3.0/d7ebc62120f202109e300e084ca1a31a7b946a62/javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[2911月2024 05:04:25.138] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/yuuki1293/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.3.0/1bf3e845ea0ce750096da8c71c8364b188ab74d4/lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[2911月2024 05:04:25.143] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/yuuki1293/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.3.0/6093682e943ddccbabf70539319d7f2fe64db2e7/mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[2911月2024 05:04:25.147] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/yuuki1293/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.3.0/3b6be96aba3e323f3c918e8ef6a96312d82d76ad/fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
+[2911月2024 05:04:25.935] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 5 dependencies adding them to mods collection
+[2911月2024 05:04:29.594] [main/WARN] [mixin/]: Compatibility level JAVA_17 specified by mixins.pccard.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[2911月2024 05:04:29.595] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[2911月2024 05:04:29.637] [main/INFO] [mixin/]: Compatibility level JAVA_11 specified by ae2.mixins.json is lower than the default level supported by the current mixin service (JAVA_16).
+[2911月2024 05:04:29.660] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /Users/yuuki1293/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, pccard, --all, --output, /Users/yuuki1293/Documents/Programmed Circuit Card/src/generated/resources, --existing, /Users/yuuki1293/Documents/Programmed Circuit Card/src/main/resources]
+[2911月2024 05:04:29.721] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
+[2911月2024 05:04:29.724] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[2911月2024 05:04:29.781] [main/INFO] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[2911月2024 05:04:29.782] [main/INFO] [mixin/]: Selecting config mixins.pccard.json
+[2911月2024 05:04:29.797] [main/WARN] [mixin/]: Reference map 'mixins.pccard.refmap.json' for mixins.pccard.json could not be read. If this is a development environment you can ignore this message
+[2911月2024 05:04:29.799] [main/INFO] [mixin/]: Selecting config emi.mixins.json
+[2911月2024 05:04:30.564] [main/INFO] [mixin/]: Remapping refMap emi-xplat-refmap.json using /Users/yuuki1293/Documents/Programmed Circuit Card/build/createSrgToMcp/output.srg
+[2911月2024 05:04:30.576] [main/INFO] [mixin/]: Selecting config emi-forge.mixins.json
+[2911月2024 05:04:30.596] [main/INFO] [mixin/]: Selecting config mixinextras.init.mixins.json
+[2911月2024 05:04:31.021] [main/INFO] [mixin/]: Selecting config configuration.mixins.json
+[2911月2024 05:04:31.029] [main/INFO] [mixin/]: Remapping refMap configuration.refmap.json using /Users/yuuki1293/Documents/Programmed Circuit Card/build/createSrgToMcp/output.srg
+[2911月2024 05:04:31.029] [main/INFO] [mixin/]: Selecting config ldlib-common.mixins.json
+[2911月2024 05:04:31.033] [main/INFO] [mixin/]: Remapping refMap ldlib-common-1.20.1-ldlib-common-refmap.json using /Users/yuuki1293/Documents/Programmed Circuit Card/build/createSrgToMcp/output.srg
+[2911月2024 05:04:31.033] [main/INFO] [mixin/]: Selecting config ldlib.mixins.json
+[2911月2024 05:04:31.035] [main/INFO] [mixin/]: Remapping refMap ldlib-forge-1.20.1-ldlib-forge-refmap.json using /Users/yuuki1293/Documents/Programmed Circuit Card/build/createSrgToMcp/output.srg
+[2911月2024 05:04:31.035] [main/INFO] [mixin/]: Selecting config gtceu.mixins.json
+[2911月2024 05:04:31.039] [main/INFO] [mixin/]: Remapping refMap gtceu.refmap.json using /Users/yuuki1293/Documents/Programmed Circuit Card/build/createSrgToMcp/output.srg
+[2911月2024 05:04:31.040] [main/INFO] [mixin/]: Selecting config ae2.mixins.json
+[2911月2024 05:04:31.045] [main/INFO] [mixin/]: Remapping refMap ae2.mixins.refmap.json using /Users/yuuki1293/Documents/Programmed Circuit Card/build/createSrgToMcp/output.srg
+[2911月2024 05:04:31.045] [main/INFO] [mixin/]: Selecting config mixins.epp.json
+[2911月2024 05:04:31.046] [main/INFO] [mixin/]: Remapping refMap mixins.epp.refmap.json using /Users/yuuki1293/Documents/Programmed Circuit Card/build/createSrgToMcp/output.srg
+[2911月2024 05:04:31.046] [main/INFO] [mixin/]: Selecting config mixins.appflux.json
+[2911月2024 05:04:31.048] [main/INFO] [mixin/]: Remapping refMap mixins.appflux.refmap.json using /Users/yuuki1293/Documents/Programmed Circuit Card/build/createSrgToMcp/output.srg
+[2911月2024 05:04:31.049] [main/INFO] [mixin/]: Preparing mixins.pccard.json (5)
+[2911月2024 05:04:31.162] [main/INFO] [mixin/]: Preparing emi.mixins.json (24)
+[2911月2024 05:04:31.768] [main/INFO] [mixin/]: Preparing emi-forge.mixins.json (0)
+[2911月2024 05:04:31.772] [main/INFO] [mixin/]: Preparing mixinextras.init.mixins.json (0)
+[2911月2024 05:04:31.772] [main/INFO] [mixin/]: Preparing configuration.mixins.json (2)
+[2911月2024 05:04:31.787] [main/INFO] [mixin/]: Preparing ldlib-common.mixins.json (27)
+[2911月2024 05:04:32.147] [main/INFO] [mixin/]: Preparing ldlib.mixins.json (2)
+[2911月2024 05:04:32.247] [main/INFO] [mixin/]: Preparing gtceu.mixins.json (62)
+[2911月2024 05:04:32.718] [main/WARN] [mixin/]: Error loading class: journeymap/client/ui/fullscreen/Fullscreen (java.lang.ClassNotFoundException: journeymap.client.ui.fullscreen.Fullscreen)
+[2911月2024 05:04:32.718] [main/WARN] [mixin/]: @Mixin target journeymap.client.ui.fullscreen.Fullscreen was not found gtceu.mixins.json:journeymap.FullscreenMixin
+[2911月2024 05:04:32.722] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
+[2911月2024 05:04:32.722] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found gtceu.mixins.json:xaeroworldmap.GuiMapMixin
+[2911月2024 05:04:32.728] [main/WARN] [mixin/]: Error loading class: xaero/map/element/MapElementRenderHandler$Builder (java.lang.ClassNotFoundException: xaero.map.element.MapElementRenderHandler$Builder)
+[2911月2024 05:04:32.729] [main/WARN] [mixin/]: @Mixin target xaero.map.element.MapElementRenderHandler$Builder was not found gtceu.mixins.json:xaeroworldmap.MapElementRenderHandlerBuilderMixin
+[2911月2024 05:04:32.745] [main/WARN] [mixin/]: Error loading class: xaero/common/minimap/highlight/HighlighterRegistry (java.lang.ClassNotFoundException: xaero.common.minimap.highlight.HighlighterRegistry)
+[2911月2024 05:04:32.746] [main/WARN] [mixin/]: @Mixin target xaero.common.minimap.highlight.HighlighterRegistry was not found gtceu.mixins.json:xaerominimap.HighlighterRegistryMixin
+[2911月2024 05:04:32.755] [main/WARN] [mixin/]: Error loading class: xaero/common/minimap/render/MinimapFBORenderer (java.lang.ClassNotFoundException: xaero.common.minimap.render.MinimapFBORenderer)
+[2911月2024 05:04:32.756] [main/WARN] [mixin/]: @Mixin target xaero.common.minimap.render.MinimapFBORenderer was not found gtceu.mixins.json:xaerominimap.MinimapFBORendererMixin
+[2911月2024 05:04:32.759] [main/WARN] [mixin/]: Error loading class: xaero/map/WorldMapSession (java.lang.ClassNotFoundException: xaero.map.WorldMapSession)
+[2911月2024 05:04:32.759] [main/WARN] [mixin/]: @Mixin target xaero.map.WorldMapSession was not found gtceu.mixins.json:xaeroworldmap.WorldMapSessionMixin
+[2911月2024 05:04:32.762] [main/INFO] [mixin/]: Preparing ae2.mixins.json (21)
+[2911月2024 05:04:34.639] [main/INFO] [mixin/]: Preparing mixins.epp.json (9)
+[2911月2024 05:04:34.692] [main/WARN] [mixin/]: Error loading class: org/cyclops/integrateddynamics/block/BlockCable (java.lang.ClassNotFoundException: org.cyclops.integrateddynamics.block.BlockCable)
+[2911月2024 05:04:34.693] [main/WARN] [mixin/]: @Mixin target org.cyclops.integrateddynamics.block.BlockCable was not found mixins.epp.json:MixinBlockCable
+[2911月2024 05:04:34.717] [main/WARN] [mixin/]: Error loading class: blusunrize/immersiveengineering/api/wires/GlobalWireNetwork (java.lang.ClassNotFoundException: blusunrize.immersiveengineering.api.wires.GlobalWireNetwork)
+[2911月2024 05:04:34.719] [main/WARN] [mixin/]: @Mixin target blusunrize.immersiveengineering.api.wires.GlobalWireNetwork was not found mixins.epp.json:MixinGlobalWireNetwork
+[2911月2024 05:04:34.777] [main/INFO] [mixin/]: Preparing mixins.appflux.json (7)
+[2911月2024 05:04:34.782] [main/WARN] [mixin/]: Error loading class: com/supermartijn642/wirelesschargers/ChargerBlockEntity (java.lang.ClassNotFoundException: com.supermartijn642.wirelesschargers.ChargerBlockEntity)
+[2911月2024 05:04:34.788] [main/WARN] [mixin/]: @Mixin target com.supermartijn642.wirelesschargers.ChargerBlockEntity was not found mixins.appflux.json:MixinChargerBlockEntity
+[2911月2024 05:04:35.534] [main/INFO] [mixin/]: Prepared 142 mixins in 5.741 sec (40.4ms avg) (0ms load, 0ms transform, 0ms plugin)
+[2911月2024 05:04:36.531] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [pccard]
+[2911月2024 05:04:36.561] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.5).
+[2911月2024 05:04:36.579] [main/INFO] [mixin/]: Mixing EarlyStartupMixin from ae2.mixins.json into net.minecraft.server.Bootstrap
+[2911月2024 05:04:36.584] [main/WARN] [mixin/]: ae2.mixins.json:EarlyStartupMixin: Class version 61 required is higher than the class version supported by the current version of Mixin (JAVA_11 supports class version 55)
+[2911月2024 05:04:37.329] [main/INFO] [mixin/]: Mixing IHolderReferenceAccessor from gtceu.mixins.json into net.minecraft.core.Holder$Reference
+[2911月2024 05:04:37.463] [main/INFO] [mixin/]: Mixing BlockMixin from gtceu.mixins.json into net.minecraft.world.level.block.Block
+[2911月2024 05:04:38.455] [main/INFO] [mixin/]: Mixing BlockBehaviourAccessor from gtceu.mixins.json into net.minecraft.world.level.block.state.BlockBehaviour
+[2911月2024 05:04:38.995] [main/INFO] [mixin/]: Mixing accessor.EntityAccessor from ldlib-common.mixins.json into net.minecraft.world.entity.Entity
+[2911月2024 05:04:39.116] [main/INFO] [mixin/]: Mixing EntityMixin from gtceu.mixins.json into net.minecraft.world.entity.Entity
+[2911月2024 05:04:40.323] [main/INFO] [mixin/]: Mixing LivingEntityMixin from gtceu.mixins.json into net.minecraft.world.entity.LivingEntity
+[2911月2024 05:04:40.862] [main/INFO] [mixin/]: Mixing LevelMixin from gtceu.mixins.json into net.minecraft.world.level.Level
+[2911月2024 05:04:41.613] [main/INFO] [mixin/]: Mixing ItemEntityMixin from ae2.mixins.json into net.minecraft.world.entity.item.ItemEntity
+[2911月2024 05:04:41.625] [main/INFO] [mixin/]: Renaming synthetic method lambda$handleEntityTransform$0(Lnet/minecraft/world/level/material/FluidState;Lappeng/recipes/transform/TransformCircumstance;)Z to md86294f$lambda$handleEntityTransform$0$0 in ae2.mixins.json:ItemEntityMixin
+[2911月2024 05:04:42.225] [main/INFO] [mixin/]: Mixing IFoliagePlacerTypeAccessor from gtceu.mixins.json into net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType
+[2911月2024 05:04:42.229] [main/INFO] [mixin/]: Renaming @Invoker method callCtor(Lcom/mojang/serialization/Codec;)Lnet/minecraft/world/level/levelgen/feature/foliageplacers/FoliagePlacerType; to callCtor_$md$86294f$0 in gtceu.mixins.json:IFoliagePlacerTypeAccessor
+[2911月2024 05:04:42.238] [main/INFO] [mixin/]: Mixing ITrunkPlacerTypeAccessor from gtceu.mixins.json into net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType
+[2911月2024 05:04:42.238] [main/INFO] [mixin/]: Renaming @Invoker method callCtor(Lcom/mojang/serialization/Codec;)Lnet/minecraft/world/level/levelgen/feature/trunkplacers/TrunkPlacerType; to callCtor_$md$86294f$0 in gtceu.mixins.json:ITrunkPlacerTypeAccessor
+[2911月2024 05:04:42.601] [main/INFO] [mixin/]: Mixing SidedRedstoneConnectivityMixin from gtceu.mixins.json into net.minecraft.world.level.block.RedStoneWireBlock
+[2911月2024 05:04:43.322] [main/INFO] [mixin/]: Mixing BlockPropertiesAccessor from gtceu.mixins.json into net.minecraft.world.level.block.state.BlockBehaviour$Properties
+[2911月2024 05:04:45.047] [main/INFO] [mixin/]: Mixing BlockEntityMixin from ldlib-common.mixins.json into net.minecraft.world.level.block.entity.BlockEntity
+[2911月2024 05:04:46.648] [main/INFO] [mixin/]: Mixing PrimedTntAccessor from gtceu.mixins.json into net.minecraft.world.entity.item.PrimedTnt
+[2911月2024 05:04:47.848] [main/INFO] [mixin/]: Mixing accessor.AbstractContainerMenuAccessor from ldlib-common.mixins.json into net.minecraft.world.inventory.AbstractContainerMenu
+[2911月2024 05:04:48.513] [main/INFO] [mixin/]: Mixing ItemStackMixin from emi.mixins.json into net.minecraft.world.item.ItemStack
+[2911月2024 05:04:49.231] [main/INFO] [mixin/]: Mixing AnvilMenuMixin from ae2.mixins.json into net.minecraft.world.inventory.AnvilMenu
+[2911月2024 05:04:52.507] [main/INFO] [mixin/]: Mixing accessor.ShovelItemAccessor from emi.mixins.json into net.minecraft.world.item.ShovelItem
+[2911月2024 05:04:52.615] [main/INFO] [mixin/]: Renaming @Accessor method getPathStates()Ljava/util/Map; to getPathStates_$md$86294f$0 in emi.mixins.json:accessor.ShovelItemAccessor
+[2911月2024 05:04:53.030] [main/INFO] [mixin/]: Mixing accessor.AxeItemAccessor from emi.mixins.json into net.minecraft.world.item.AxeItem
+[2911月2024 05:04:53.032] [main/INFO] [mixin/]: Renaming @Accessor method getStrippedBlocks()Ljava/util/Map; to getStrippedBlocks_$md$86294f$0 in emi.mixins.json:accessor.AxeItemAccessor
+[2911月2024 05:04:53.187] [main/INFO] [mixin/]: Mixing accessor.HoeItemAccessor from emi.mixins.json into net.minecraft.world.item.HoeItem
+[2911月2024 05:04:53.192] [main/INFO] [mixin/]: Renaming @Accessor method getTillingActions()Ljava/util/Map; to getTillingActions_$md$86294f$0 in emi.mixins.json:accessor.HoeItemAccessor
+[2911月2024 05:04:53.274] [main/INFO] [mixin/]: Mixing HoeItemMixin from emi.mixins.json into net.minecraft.world.item.HoeItem
+[2911月2024 05:04:57.648] [main/INFO] [mixin/]: Mixing CreeperMixin from gtceu.mixins.json into net.minecraft.world.entity.monster.Creeper
+[2911月2024 05:04:59.804] [main/INFO] [mixin/]: Mixing accessor.ServerPlayerAccessor from ldlib-common.mixins.json into net.minecraft.server.level.ServerPlayer
+[2911月2024 05:05:00.257] [main/INFO] [mixin/]: Mixing ChunkMixin from gtceu.mixins.json into net.minecraft.world.level.chunk.LevelChunk
+[2911月2024 05:05:00.262] [main/INFO] [mixin/]: Renaming synthetic method lambda$gtceu$onChunkChanged$0(Lcom/gregtechceu/gtceu/api/pattern/MultiblockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V to md86294f$lambda$gtceu$onChunkChanged$0$0 in gtceu.mixins.json:ChunkMixin
+[2911月2024 05:05:01.046] [main/INFO] [mixin/]: Mixing IngredientAccessor from gtceu.mixins.json into net.minecraft.world.item.crafting.Ingredient
+[2911月2024 05:05:01.185] [main/INFO] [mixin/]: Renaming @Invoker method create(Ljava/util/stream/Stream;)Lnet/minecraft/world/item/crafting/Ingredient; to create_$md$86294f$0 in gtceu.mixins.json:IngredientAccessor
+[2911月2024 05:05:01.342] [main/INFO] [mixin/]: Mixing ServerGamePacketListenerImplAccessor from gtceu.mixins.json into net.minecraft.server.network.ServerGamePacketListenerImpl
+[2911月2024 05:05:01.509] [main/INFO] [mixin/]: Mixing ItemValueAccessor from gtceu.mixins.json into net.minecraft.world.item.crafting.Ingredient$ItemValue
+[2911月2024 05:05:01.724] [main/INFO] [mixin/]: Mixing UnbreakingMixin from ae2.mixins.json into net.minecraft.world.item.enchantment.DigDurabilityEnchantment
+[2911月2024 05:05:02.154] [main/INFO] [mixin/]: Mixing ChunkGeneratorMixin from gtceu.mixins.json into net.minecraft.world.level.chunk.ChunkGenerator
+[2911月2024 05:05:03.004] [main/INFO] [mixin/]: Mixing InventoryMixin from gtceu.mixins.json into net.minecraft.world.entity.player.Inventory
+[2911月2024 05:05:03.943] [main/INFO] [mixin/]: Mixing accessor.SlotAccessor from ldlib-common.mixins.json into net.minecraft.world.inventory.Slot
+[2911月2024 05:05:04.021] [main/INFO] [mixin/]: Mixing MixinSlot from mixins.epp.json into net.minecraft.world.inventory.Slot
+[2911月2024 05:05:04.031] [main/WARN] [mixin/]: @Shadow field mixins.epp.json:MixinSlot::x is decorated with @Final but target is not final
+[2911月2024 05:05:04.032] [main/WARN] [mixin/]: @Shadow field mixins.epp.json:MixinSlot::y is decorated with @Final but target is not final
+[2911月2024 05:05:04.037] [main/WARN] [mixin/]: Write access to @Mutable @Final field x:I in mixins.epp.json:MixinSlot::setXPos
+[2911月2024 05:05:04.038] [main/WARN] [mixin/]: Write access to @Mutable @Final field y:I in mixins.epp.json:MixinSlot::setYPos
+[2911月2024 05:05:04.061] [main/INFO] [mixin/]: Mixing accessor.CraftingResultSlotAccessor from emi.mixins.json into net.minecraft.world.inventory.ResultSlot
+[2911月2024 05:05:04.193] [main/INFO] [mixin/]: Mixing CraftingResultSlotMixin from emi.mixins.json into net.minecraft.world.inventory.ResultSlot
+[2911月2024 05:05:04.575] [main/INFO] [mixin/]: Mixing ShapedRecipeAccessor from gtceu.mixins.json into net.minecraft.world.item.crafting.ShapedRecipe
+[2911月2024 05:05:04.581] [main/INFO] [mixin/]: Renaming @Invoker method callKeyFromJson(Lcom/google/gson/JsonObject;)Ljava/util/Map; to callKeyFromJson_$md$86294f$0 in gtceu.mixins.json:ShapedRecipeAccessor
+[2911月2024 05:05:04.730] [main/INFO] [mixin/]: Renaming @Invoker method callPatternFromJson(Lcom/google/gson/JsonArray;)[Ljava/lang/String; to callPatternFromJson_$md$86294f$1 in gtceu.mixins.json:ShapedRecipeAccessor
+[2911月2024 05:05:04.875] [main/INFO] [mixin/]: Renaming @Invoker method callDissolvePattern([Ljava/lang/String;Ljava/util/Map;II)Lnet/minecraft/core/NonNullList; to callDissolvePattern_$md$86294f$2 in gtceu.mixins.json:ShapedRecipeAccessor
+[2911月2024 05:05:05.032] [main/INFO] [mixin/]: Renaming @Invoker method callShrink([Ljava/lang/String;)[Ljava/lang/String; to callShrink_$md$86294f$3 in gtceu.mixins.json:ShapedRecipeAccessor
+[2911月2024 05:05:05.301] [main/INFO] [mixin/]: Mixing RepairItemRecipeMixin from gtceu.mixins.json into net.minecraft.world.item.crafting.RepairItemRecipe
+[2911月2024 05:05:05.306] [main/INFO] [mixin/]: Renaming synthetic method lambda$gtceu$assemble$0(Lcom/llamalad7/mixinextras/sugar/ref/LocalRef;Lnet/minecraft/world/item/enchantment/Enchantment;Ljava/lang/Integer;)V to md86294f$lambda$gtceu$assemble$0$0 in gtceu.mixins.json:RepairItemRecipeMixin
+[2911月2024 05:05:06.573] [main/INFO] [mixin/]: Mixing OreConfigurationMixin from gtceu.mixins.json into net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration
+[2911月2024 05:05:06.576] [main/INFO] [mixin/]: Renaming synthetic method lambda$gtceu$init$0(Lnet/minecraft/world/level/levelgen/feature/configurations/OreConfiguration$TargetBlockState;)Z to md86294f$lambda$gtceu$init$0$0 in gtceu.mixins.json:OreConfigurationMixin
+[2911月2024 05:05:07.727] [main/WARN] [AE2:C/]: Unable to find class com.simibubi.create.foundation.ponder.PonderWorld. Integration with PonderJS disabled.
+[2911月2024 05:05:08.082] [main/INFO] [mixin/]: Mixing PatternProviderBlockEntityMixin from mixins.pccard.json into appeng.blockentity.crafting.PatternProviderBlockEntity
+[2911月2024 05:05:08.145] [main/INFO] [mixin/]: Mixing MixinPatternProviderLogicHost from mixins.appflux.json into appeng.helpers.patternprovider.PatternProviderLogicHost
+[2911月2024 05:05:08.422] [main/INFO] [mixin/]: Mixing ae2.GenericStackInvAccessor from gtceu.mixins.json into appeng.helpers.externalstorage.GenericStackInv
+[2911月2024 05:05:08.581] [main/INFO] [mixin/]: Mixing PatternProviderPartMixin from mixins.pccard.json into appeng.parts.crafting.PatternProviderPart
+[2911月2024 05:05:08.633] [main/INFO] [mixin/]: Mixing PatternProviderLogicMixin from mixins.pccard.json into appeng.helpers.patternprovider.PatternProviderLogic
+[2911月2024 05:05:08.638] [main/INFO] [mixin/]: Renaming synthetic method lambda$getAvailablePatterns$3(Lappeng/api/crafting/IPatternDetails$IInput;)Lnet/minecraft/world/item/ItemStack; to md86294f$lambda$getAvailablePatterns$3$0 in mixins.pccard.json:PatternProviderLogicMixin
+[2911月2024 05:05:08.638] [main/INFO] [mixin/]: Renaming synthetic method lambda$getAvailablePatterns$2(Lappeng/api/crafting/IPatternDetails$IInput;)Z to md86294f$lambda$getAvailablePatterns$2$1 in mixins.pccard.json:PatternProviderLogicMixin
+[2911月2024 05:05:08.638] [main/INFO] [mixin/]: Renaming synthetic method lambda$getAvailablePatterns$1(I)[Lappeng/api/crafting/IPatternDetails$IInput; to md86294f$lambda$getAvailablePatterns$1$2 in mixins.pccard.json:PatternProviderLogicMixin
+[2911月2024 05:05:08.638] [main/INFO] [mixin/]: Renaming synthetic method lambda$getAvailablePatterns$0(Lappeng/api/crafting/IPatternDetails$IInput;)Z to md86294f$lambda$getAvailablePatterns$0$3 in mixins.pccard.json:PatternProviderLogicMixin
+[2911月2024 05:05:08.871] [main/INFO] [mixin/]: Mixing MixinPatternProviderLogic from mixins.appflux.json into appeng.helpers.patternprovider.PatternProviderLogic
+[2911月2024 05:05:09.567] [main/INFO] [mixin/]: Mixing MixinInterfaceLogic from mixins.appflux.json into appeng.helpers.InterfaceLogic
+[2911月2024 05:05:09.588] [main/WARN] [mixin/]: Write access to @Mutable @Final field upgrades:Lappeng/api/upgrades/IUpgradeInventory; in mixins.appflux.json:MixinInterfaceLogic::handler$zfn000$expendUpgrades
+[2911月2024 05:05:10.138] [modloading-worker-0/INFO] [mixin/]: Mixing ScreenMixin from emi.mixins.json into net.minecraft.client.gui.screens.Screen
+[2911月2024 05:05:10.188] [modloading-worker-0/INFO] [mixin/]: Mixing MixinScreen from mixins.epp.json into net.minecraft.client.gui.screens.Screen
+[2911月2024 05:05:10.190] [modloading-worker-0/INFO] [mixin/]: Mixing WrappedGenericStackTooltipModIdMixin from ae2.mixins.json into net.minecraft.client.gui.screens.Screen
+[2911月2024 05:05:11.888] [modloading-worker-0/INFO] [LowDragLib/]: LowDragLib is initializing on platform: Forge
+[2911月2024 05:05:11.888] [modloading-worker-0/INFO] [GregTechCEu/]: GregTechCEu is initializing on platform: Forge
+[2911月2024 05:05:12.066] [modloading-worker-0/INFO] [mixin/]: Mixing ClientLevelAccessor from gtceu.mixins.json into net.minecraft.client.multiplayer.ClientLevel
+[2911月2024 05:05:12.556] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
+[2911月2024 05:05:12.563] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
+[2911月2024 05:05:12.659] [modloading-worker-0/INFO] [mixin/]: Mixing MultiPlayerGameModeMixin from gtceu.mixins.json into net.minecraft.client.multiplayer.MultiPlayerGameMode
+[2911月2024 05:05:12.948] [modloading-worker-0/INFO] [mixin/]: Mixing spatial.MinecraftServerMixin from ae2.mixins.json into net.minecraft.server.MinecraftServer
+[2911月2024 05:05:12.952] [modloading-worker-0/WARN] [mixin/]: @Shadow target ae2.mixins.json:spatial.MinecraftServerMixin::levels is final but shadow is not decorated with @Final
+[2911月2024 05:05:12.956] [modloading-worker-0/WARN] [mixin/]: @Shadow target ae2.mixins.json:spatial.MinecraftServerMixin::worldData is final but shadow is not decorated with @Final
+[2911月2024 05:05:12.957] [modloading-worker-0/WARN] [mixin/]: @Shadow target ae2.mixins.json:spatial.MinecraftServerMixin::executor is final but shadow is not decorated with @Final
+[2911月2024 05:05:12.958] [modloading-worker-0/WARN] [mixin/]: @Shadow target ae2.mixins.json:spatial.MinecraftServerMixin::storageSource is final but shadow is not decorated with @Final
+[2911月2024 05:05:12.958] [modloading-worker-0/WARN] [mixin/]: @Shadow target ae2.mixins.json:spatial.MinecraftServerMixin::registries is final but shadow is not decorated with @Final
+[2911月2024 05:05:13.503] [modloading-worker-0/INFO] [mixin/]: Mixing ParticleEngineMixin from ldlib-common.mixins.json into net.minecraft.client.particle.ParticleEngine
+[2911月2024 05:05:13.511] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$injectTick$0(Ljava/util/Map$Entry;)Z to md86294f$lambda$injectTick$0$0 in ldlib-common.mixins.json:ParticleEngineMixin
+[2911月2024 05:05:13.543] [modloading-worker-0/INFO] [mixin/]: Mixing accessor.ParticleEngineAccessor from ldlib-common.mixins.json into net.minecraft.client.particle.ParticleEngine
+[2911月2024 05:05:14.009] [modloading-worker-0/INFO] [mixin/]: Mixing accessor.HandledScreenAccessor from emi.mixins.json into net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
+[2911月2024 05:05:14.333] [modloading-worker-0/INFO] [mixin/]: Mixing HandledScreenMixin from emi.mixins.json into net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
+[2911月2024 05:05:14.361] [modloading-worker-0/INFO] [mixin/]: Mixing accessor.AbstractContainerScreenAccessor from ldlib-common.mixins.json into net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
+[2911月2024 05:05:14.843] [modloading-worker-0/INFO] [mixin/]: Mixing AbstractContainerScreenMixin from ae2.mixins.json into net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
+[2911月2024 05:05:14.847] [modloading-worker-0/INFO] [mixin/]: Mixing ResizableSlotHighlightMixin from ae2.mixins.json into net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
+[2911月2024 05:05:14.855] [modloading-worker-0/INFO] [mixin/]: Mixing MixinAbstractContainerScreen from mixins.epp.json into net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
+[2911月2024 05:05:17.015] [modloading-worker-0/INFO] [mixin/]: Mixing jei.FluidHelperMixin from gtceu.mixins.json into mezz.jei.forge.platform.FluidHelper
+[2911月2024 05:05:17.309] [modloading-worker-0/INFO] [mixin/]: Mixing ModelBakeryMixin from ldlib-common.mixins.json into net.minecraft.client.resources.model.ModelBakery
+[2911月2024 05:05:17.309] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$injectLoadModel$0(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/resources/model/UnbakedModel; to md86294f$lambda$injectLoadModel$0$0 in ldlib-common.mixins.json:ModelBakeryMixin
+[2911月2024 05:05:17.319] [modloading-worker-0/INFO] [mixin/]: Mixing accessor.ModelBakeryAccessor from ldlib-common.mixins.json into net.minecraft.client.resources.model.ModelBakery
+[2911月2024 05:05:17.722] [modloading-worker-0/INFO] [mixin/]: Mixing ModelBakeryMixin from ae2.mixins.json into net.minecraft.client.resources.model.ModelBakery
+[2911月2024 05:05:19.772] [modloading-worker-0/INFO] [mixin/]: Mixing AbstractRegistrateAccessor from gtceu.mixins.json into com.tterrag.registrate.AbstractRegistrate
+[2911月2024 05:05:19.924] [modloading-worker-0/INFO] [mixin/]: Mixing ReloadableResourceManagerMixin from ldlib-common.mixins.json into net.minecraft.server.packs.resources.ReloadableResourceManager
+[2911月2024 05:05:20.694] [modloading-worker-0/INFO] [mixin/]: Mixing WorldRendererMixin from ldlib-common.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[2911月2024 05:05:20.703] [modloading-worker-0/INFO] [mixin/]: Mixing LevelRendererMixin from gtceu.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[2911月2024 05:05:20.704] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$renderHitOutline$0(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;Lnet/minecraft/core/BlockPos;DDDLnet/minecraft/world/phys/shapes/VoxelShape;)V to md86294f$lambda$renderHitOutline$0$0 in gtceu.mixins.json:LevelRendererMixin
+[2911月2024 05:05:22.246] [modloading-worker-0/INFO] [mixin/]: Mixing MinecraftClientMixin from emi.mixins.json into net.minecraft.client.Minecraft
+[2911月2024 05:05:22.254] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$reloadResources$0()V to md86294f$lambda$reloadResources$0$0 in emi.mixins.json:MinecraftClientMixin
+[2911月2024 05:05:22.261] [modloading-worker-0/INFO] [mixin/]: Mixing MinecraftMixin from configuration.mixins.json into net.minecraft.client.Minecraft
+[2911月2024 05:05:22.264] [modloading-worker-0/INFO] [mixin/]: Mixing PickColorMixin from ae2.mixins.json into net.minecraft.client.Minecraft
+[2911月2024 05:05:23.353] [modloading-worker-0/INFO] [Configuration/FileWatching]: Registered configuration config for auto-sync function
+[2911月2024 05:05:23.512] [modloading-worker-0/INFO] [Configuration/FileWatching]: Registered gtceu config for auto-sync function
+[2911月2024 05:05:23.526] [modloading-worker-0/INFO] [mixin/]: Mixing TextureAtlasMixin from ldlib-common.mixins.json into net.minecraft.client.renderer.texture.TextureAtlas
+[2911月2024 05:05:23.529] [modloading-worker-0/INFO] [GregTechCEu/]: High-Tier is Enabled.
+[2911月2024 05:05:23.534] [modloading-worker-0/INFO] [mixin/]: Mixing TextureAtlasMixin from ae2.mixins.json into net.minecraft.client.renderer.texture.TextureAtlas
+[2911月2024 05:05:23.937] [modloading-worker-0/INFO] [mixin/]: Mixing BlockColorsMixin from gtceu.mixins.json into net.minecraft.client.color.block.BlockColors
+[2911月2024 05:05:24.821] [modloading-worker-0/INFO] [mixin/]: Mixing AbstractInventoryScreenMixin from emi.mixins.json into net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen
+[2911月2024 05:05:25.541] [modloading-worker-0/INFO] [mixin/]: Mixing CompassManagerMixin from gtceu.mixins.json into com.lowdragmc.lowdraglib.gui.compass.CompassManager
+[2911月2024 05:05:25.542] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$gtceu$disableCompass$0(Lcom/lowdragmc/lowdraglib/gui/compass/CompassNode;)Z to md86294f$lambda$gtceu$disableCompass$0$0 in gtceu.mixins.json:CompassManagerMixin
+[2911月2024 05:05:25.635] [modloading-worker-0/INFO] [mixin/]: Mixing accessor.VertexFormatAccessor from ldlib-common.mixins.json into com.mojang.blaze3d.vertex.VertexFormat
+[2911月2024 05:05:25.790] [modloading-worker-0/INFO] [mixin/]: Mixing PlayerListMixin from configuration.mixins.json into net.minecraft.server.players.PlayerList
+[2911月2024 05:05:25.791] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$configuration_sendServerConfigs$0(Lnet/minecraft/server/level/ServerPlayer;Ljava/lang/String;)V to md86294f$lambda$configuration_sendServerConfigs$0$0 in configuration.mixins.json:PlayerListMixin
+[2911月2024 05:05:26.124] [modloading-worker-0/INFO] [mixin/]: Mixing accessor.ItemRendererAccessor from emi.mixins.json into net.minecraft.client.renderer.entity.ItemRenderer
+[2911月2024 05:05:26.534] [modloading-worker-0/INFO] [mixin/]: Mixing ItemRendererMixin from ldlib-common.mixins.json into net.minecraft.client.renderer.entity.ItemRenderer
+[2911月2024 05:05:27.189] [modloading-worker-0/INFO] [mixin/]: Mixing ItemModelShaperMixin from ldlib-common.mixins.json into net.minecraft.client.renderer.ItemModelShaper
+[2911月2024 05:05:27.190] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$injectGetModel$0(Lcom/lowdragmc/lowdraglib/client/renderer/IRenderer;Lnet/minecraft/world/item/ItemStack;Lcom/lowdragmc/lowdraglib/client/renderer/IRenderer;)Lnet/minecraft/client/resources/model/BakedModel; to md86294f$lambda$injectGetModel$0$0 in ldlib-common.mixins.json:ItemModelShaperMixin
+[2911月2024 05:05:27.713] [modloading-worker-0/INFO] [mixin/]: Mixing jei.PluginCallerMixin from emi.mixins.json into mezz.jei.library.load.PluginCaller
+[2911月2024 05:05:28.093] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[2911月2024 05:05:28.170] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 45.22 ms
+[2911月2024 05:05:28.183] [modloading-worker-0/INFO] [mixin/]: Mixing RecipeManagerAccessor from gtceu.mixins.json into net.minecraft.world.item.crafting.RecipeManager
+[2911月2024 05:05:28.232] [modloading-worker-0/INFO] [mixin/]: Mixing RecipeManagerInvoker from gtceu.mixins.json into net.minecraft.world.item.crafting.RecipeManager
+[2911月2024 05:05:28.362] [modloading-worker-0/INFO] [mixin/]: Mixing RecipeManagerMixin from gtceu.mixins.json into net.minecraft.world.item.crafting.RecipeManager
+[2911月2024 05:05:28.363] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$gtceu$cloneVanillaRecipes$2(Lcom/gregtechceu/gtceu/api/recipe/GTRecipeType;Lcom/gregtechceu/gtceu/api/recipe/GTRecipe;)V to md86294f$lambda$gtceu$cloneVanillaRecipes$2$0 in gtceu.mixins.json:RecipeManagerMixin
+[2911月2024 05:05:28.365] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$gtceu$cloneVanillaRecipes$1(Lcom/gregtechceu/gtceu/api/recipe/GTRecipeType;Lcom/gregtechceu/gtceu/api/recipe/GTRecipe;)V to md86294f$lambda$gtceu$cloneVanillaRecipes$1$1 in gtceu.mixins.json:RecipeManagerMixin
+[2911月2024 05:05:28.365] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$gtceu$cloneVanillaRecipes$0(Ljava/util/Map$Entry;)Ljava/util/stream/Stream; to md86294f$lambda$gtceu$cloneVanillaRecipes$0$2 in gtceu.mixins.json:RecipeManagerMixin
+[2911月2024 05:05:28.846] [main/INFO] [GregTechCEu/]: GTCEu common proxy init!
+[2911月2024 05:05:28.943] [main/INFO] [GregTechCEu/]: Registering material registries
+[2911月2024 05:05:28.945] [main/INFO] [GregTechCEu/]: Registering GTCEu Materials
+[2911月2024 05:05:29.618] [main/INFO] [GregTechCEu/]: Registering addon Materials
+[2911月2024 05:05:30.015] [main/WARN] [GregTechCEu/]: FluidStorageKey{gtceu:liquid} already has an associated fluid for material gtceu:water
+[2911月2024 05:05:30.189] [main/WARN] [GregTechCEu/]: FluidStorageKey{gtceu:liquid} already has an associated fluid for material gtceu:lava
+[2911月2024 05:05:30.190] [main/WARN] [GregTechCEu/]: FluidStorageKey{gtceu:liquid} already has an associated fluid for material gtceu:milk
+[2911月2024 05:05:31.589] [main/INFO] [mixin/]: Mixing StrictNBTIngredientAccessor from gtceu.mixins.json into net.minecraftforge.common.crafting.StrictNBTIngredient
+[2911月2024 05:05:37.623] [main/INFO] [GregTechCEu/]: Registering KeyBinds
+[2911月2024 05:05:37.631] [main/WARN] [net.minecraftforge.fml.DeferredWorkQueue/LOADING]: Mod 'gtceu' took 8.781 s to run a deferred task.
+[2911月2024 05:05:40.219] [main/INFO] [mixin/]: Mixing MixinCreativeEnergyCellBlockEntity from mixins.appflux.json into appeng.blockentity.networking.CreativeEnergyCellBlockEntity
+[2911月2024 05:05:40.901] [main/INFO] [mixin/]: Mixing MixinPatternAccessTermMenu from mixins.epp.json into appeng.menu.implementations.PatternAccessTermMenu
+[2911月2024 05:05:41.310] [main/INFO] [mixin/]: Mixing MixinPatternAccessTerminalPacket from mixins.epp.json into appeng.core.sync.packets.PatternAccessTerminalPacket
+[2911月2024 05:05:41.438] [main/INFO] [mixin/]: Mixing MixinClearPatternAccessTerminalPacket from mixins.epp.json into appeng.core.sync.packets.ClearPatternAccessTerminalPacket
+[2911月2024 05:05:41.531] [main/INFO] [mixin/]: Mixing PatternProviderMenuMixin from mixins.pccard.json into appeng.menu.implementations.PatternProviderMenu
+[2911月2024 05:05:41.576] [main/INFO] [mixin/]: Mixing MixinPatternProviderMenu from mixins.appflux.json into appeng.menu.implementations.PatternProviderMenu
+[2911月2024 05:05:46.857] [main/INFO] [mixin/]: Mixing PartialNBTIngredientAccessor from gtceu.mixins.json into net.minecraftforge.common.crafting.PartialNBTIngredient
+[2911月2024 05:05:47.094] [main/INFO] [mixin/]: Mixing IntersectionIngredientAccessor from gtceu.mixins.json into net.minecraftforge.common.crafting.IntersectionIngredient
+[2911月2024 05:05:49.298] [Worker-Main-1/INFO] [mixin/]: Mixing ServerChunkProviderMixin from gtceu.mixins.json into net.minecraft.server.level.ServerChunkCache
+[2911月2024 05:05:50.505] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/yuuki1293/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
+[2911月2024 05:05:50.531] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/yuuki1293/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
+[2911月2024 05:05:51.462] [main/INFO] [mixin/]: Mixing TagManagerMixin from gtceu.mixins.json into net.minecraft.tags.TagManager
+[2911月2024 05:05:52.485] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 0 ms
+[2911月2024 05:05:52.500] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 0, old count: 0, new count: 1, removed stale: 0, written: 0

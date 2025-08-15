@@ -1,7 +1,7 @@
 package yuuki1293.pccard.impl;
 
 import appeng.api.crafting.IPatternDetails;
-import appeng.api.crafting.PatternDetailsHelper;
+import appeng.api.implementations.blockentities.ICraftingMachine;
 import appeng.api.networking.IGrid;
 import appeng.api.networking.security.IActionHost;
 import appeng.api.parts.IPartHost;
@@ -18,13 +18,14 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import org.slf4j.Logger;
+import yuuki1293.pccard.wrapper.IPatternP2PTunnelLogicMixin;
 import yuuki1293.pccard.wrapper.IPatternProviderLogicMixin;
 import yuuki1293.pccard.TagUtils;
 import yuuki1293.pccard.wrapper.IAEPattern;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -38,7 +39,7 @@ public class PatternProviderLogicImpl {
             var newStack = stack.copy();
             var inputs = TagUtils.getInputsFromPattern(newStack);
             var tagRoot = newStack.getTag();
-            if(tagRoot == null) { // if null, create new empty tag
+            if (tagRoot == null) { // if null, create new empty tag
                 tagRoot = new CompoundTag();
             }
 
@@ -89,11 +90,10 @@ public class PatternProviderLogicImpl {
     /**
      * get BlockPos which ingredient are sent. include subnet.
      * @param self caller
-     * @param parent Class of mixin target
      * @return all send posses
      */
-    public static List<BlockPos> getSendPos(Level level, IPatternProviderLogicMixin self, Class<?> parent) {
-        var posDir = getSendPosDirect(self, parent);
+    public static List<BlockPos> getSendPos(Level level, IPatternProviderLogicMixin self) {
+        var posDir = getSendPosDirect(self);
         var pos2 = getSendPosSubnet(level, posDir.getA(), posDir.getB().getOpposite());
 
         if (pos2.isEmpty()) {
@@ -106,18 +106,24 @@ public class PatternProviderLogicImpl {
     /**
      * support MAE2 pattern p2p
      */
-    public static Tuple<BlockPos, Direction> getSendPosDirect(IPatternProviderLogicMixin self, Class<?> parent) {
+    public static Tuple<BlockPos, Direction> getSendPosDirect(IPatternProviderLogicMixin self) {
         try {
             var dir = self.pCCard$getSendDirection();
 
-            // stone.mae2.mixins.PatternProviderLogicMixin.pushPattern
-            if (Arrays.stream(parent.getDeclaredFields()).anyMatch(f -> f.getName().equals("sendPos"))) {
-                var posFiled = parent.getDeclaredField("sendPos");
-                posFiled.setAccessible(true);
-                var pos = posFiled.get(self);
+            // For MAE2
+            {
+                var level = self.pCCard$getLevel();
+                if (level == null) return new Tuple<>(BlockPos.ZERO, Direction.UP);
 
-                if (pos != null)
-                    return new Tuple<>((BlockPos) posFiled.get(self), dir);
+                BlockPos adjPos = self.pCCard$getBlockEntity().getBlockPos().relative(dir);
+                BlockEntity adjBe = level.getBlockEntity(adjPos);
+                Direction adjBeSide = dir.getOpposite();
+                ICraftingMachine craftingMachine = ICraftingMachine.of(level, adjPos, adjBeSide, adjBe);
+                if (craftingMachine instanceof IPatternP2PTunnelLogicMixin patternP2P) {
+                    var patternP2PPos = patternP2P.pCCard$getLastBlockPos();
+                    var patternP2PDirection = patternP2P.pCCard$getLastDirection();
+                    return new Tuple<>(patternP2PPos, patternP2PDirection);
+                }
             }
 
             var be = self.pCCard$getBlockEntity();

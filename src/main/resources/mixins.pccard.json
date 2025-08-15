@@ -17,6 +17,7 @@
     "ExecutingCraftingJobMixin",
     "GenericEntryStackHelperJEIMixin",
     "PatternDetailsHelperMixin",
+    "PatternP2PTunnelLogicMixin",
     "PatternProviderLogicHostMixin",
     "PatternProviderLogicMixin",
     "PatternProviderLogicMixinHP",

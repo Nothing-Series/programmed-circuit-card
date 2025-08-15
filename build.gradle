@@ -144,7 +144,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:extendedae-892005:${exae_version}")
     runtimeOnly fg.deobf("curse.maven:glodium-957920:${glodium_version}")
     runtimeOnly fg.deobf("curse.maven:applied-flux-965012:${appflux_version}") // Applied Flux
-    runtimeOnly fg.deobf("curse.maven:mae2-1028068:${mae2_version}") // MAE2
+    implementation fg.deobf("curse.maven:mae2-1028068:${mae2_version}") // MAE2
     runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_version}") // Jade
     compileOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}:api") // GuideME
     runtimeOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}")

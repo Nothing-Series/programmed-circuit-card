@@ -109,7 +109,7 @@ public abstract class AdvPatternProviderLogicMixin implements IUpgradeableObject
 
     @Override
     public List<BlockPos> pCCard$getSendPos() {
-        return PatternProviderLogicImpl.getSendPos(pCCard$getLevel(), this, AdvPatternProviderLogic.class);
+        return PatternProviderLogicImpl.getSendPos(pCCard$getLevel(), this);
     }
 
     @Override
@@ -130,14 +130,14 @@ public abstract class AdvPatternProviderLogicMixin implements IUpgradeableObject
     }
 
     @Unique
-    private Level pCCard$getLevel() {
+    public Level pCCard$getLevel() {
         return pCCard$getBlockEntity().getLevel();
     }
 
     // This is necessary?
-    @Inject(method = "sendStacksOut", at = @At("HEAD"))
-    private void sendStacksOut(CallbackInfoReturnable<Boolean> cir) {
-        pCCard$sendDirection = this.sendDirection;
+    @Inject(method = "pushPattern", at = @At(value = "INVOKE", target = "Lappeng/api/implementations/blockentities/ICraftingMachine;pushPattern(Lappeng/api/crafting/IPatternDetails;[Lappeng/api/stacks/KeyCounter;Lnet/minecraft/core/Direction;)Z"))
+    private void pushPattern(CallbackInfoReturnable<Boolean> cir, @Local Direction direction) {
+        pCCard$sendDirection = direction;
     }
 }
 

@@ -7,6 +7,7 @@ import appeng.api.upgrades.IUpgradeableObject;
 import appeng.api.upgrades.UpgradeInventories;
 import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.helpers.patternprovider.PatternProviderLogicHost;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -26,8 +27,6 @@ import yuuki1293.pccard.PCCard;
 import yuuki1293.pccard.impl.PatternProviderLogicImpl;
 
 import java.util.List;
-
-import static yuuki1293.pccard.NBTs.NBT_CIRCUIT;
 
 @Mixin(value = PatternProviderLogic.class, remap = false, priority = 800)
 public abstract class PatternProviderLogicMixin implements IUpgradeableObject, IPatternProviderLogicMixin {
@@ -108,7 +107,7 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
 
     @Override
     public List<BlockPos> pCCard$getSendPos() {
-        return PatternProviderLogicImpl.getSendPos(pCCard$getLevel(), this, PatternProviderLogic.class);
+        return PatternProviderLogicImpl.getSendPos(pCCard$getLevel(), this);
     }
 
     @Override
@@ -129,14 +128,13 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
     }
 
     @Unique
-    private Level pCCard$getLevel() {
+    public Level pCCard$getLevel() {
         return pCCard$getBlockEntity().getLevel();
     }
 
-    // This is necessary?
-    @Inject(method = "sendStacksOut", at = @At("HEAD"))
-    private void sendStacksOut(CallbackInfoReturnable<Boolean> cir) {
-        pCCard$sendDirection = this.sendDirection;
+    @Inject(method = "pushPattern", at = @At(value = "INVOKE", target = "Lappeng/helpers/patternprovider/PatternProviderLogic;onPushPatternSuccess(Lappeng/api/crafting/IPatternDetails;)V", ordinal = 0), require = 1)
+    private void pushPattern(CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Direction direction) {
+        pCCard$sendDirection = direction;
     }
 }
 
