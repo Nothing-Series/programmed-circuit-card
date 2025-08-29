@@ -133,7 +133,12 @@ public abstract class PatternProviderLogicMixin implements IUpgradeableObject, I
     }
 
     @Inject(method = "pushPattern", at = @At(value = "INVOKE", target = "Lappeng/helpers/patternprovider/PatternProviderLogic;onPushPatternSuccess(Lappeng/api/crafting/IPatternDetails;)V", ordinal = 0), require = 1)
-    private void pushPattern(CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Direction direction) {
+    private void pushPatternCraftingMachine(CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Direction direction) {
+        pCCard$sendDirection = direction;
+    }
+
+    @Inject(method = "pushPattern", at = @At(value = "INVOKE", target = "Lappeng/helpers/patternprovider/PatternProviderLogic;onPushPatternSuccess(Lappeng/api/crafting/IPatternDetails;)V", ordinal = 1), require = 1)
+    private void pushPatternProcessingMachine(CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Direction direction) {
         pCCard$sendDirection = direction;
     }
 }

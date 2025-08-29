@@ -108,17 +108,18 @@ public class PatternProviderLogicImpl {
      */
     public static Tuple<BlockPos, Direction> getSendPosDirect(IPatternProviderLogicMixin self) {
         try {
+            var level = self.pCCard$getLevel();
+            if (level == null) return new Tuple<>(BlockPos.ZERO, Direction.UP);
+
             var dir = self.pCCard$getSendDirection();
+            var be = self.pCCard$getBlockEntity();
+            var adjPos = be.getBlockPos().relative(dir);
 
             // For MAE2
             {
-                var level = self.pCCard$getLevel();
-                if (level == null) return new Tuple<>(BlockPos.ZERO, Direction.UP);
-
-                BlockPos adjPos = self.pCCard$getBlockEntity().getBlockPos().relative(dir);
-                BlockEntity adjBe = level.getBlockEntity(adjPos);
-                Direction adjBeSide = dir.getOpposite();
-                ICraftingMachine craftingMachine = ICraftingMachine.of(level, adjPos, adjBeSide, adjBe);
+                var adjBe = level.getBlockEntity(adjPos);
+                var adjBeSide = dir.getOpposite();
+                var craftingMachine = ICraftingMachine.of(level, adjPos, adjBeSide, adjBe);
                 if (craftingMachine instanceof IPatternP2PTunnelLogicMixin patternP2P) {
                     var patternP2PPos = patternP2P.pCCard$getLastBlockPos();
                     var patternP2PDirection = patternP2P.pCCard$getLastDirection();
@@ -126,9 +127,7 @@ public class PatternProviderLogicImpl {
                 }
             }
 
-            var be = self.pCCard$getBlockEntity();
-
-            return new Tuple<>(be.getBlockPos().relative(dir), dir);
+            return new Tuple<>(adjPos, dir);
         } catch (Exception e) {
             LOGGER.error("Error while getting sendPos", e);
             return new Tuple<>(BlockPos.ZERO, Direction.UP);
