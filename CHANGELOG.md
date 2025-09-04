@@ -1,6 +1,10 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [Unreleased]
+### Known Issues
+ - Currently incompatible with Expanded AE. This will be resolved in a future release.
+
 ## [1.0.18] - 2025-08-29
 ### Fixed
  - 1.0.17 is not working.
