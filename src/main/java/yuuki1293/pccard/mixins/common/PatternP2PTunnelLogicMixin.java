@@ -1,4 +1,4 @@
-package yuuki1293.pccard.mixins;
+package yuuki1293.pccard.mixins.common;
 
 import appeng.api.implementations.blockentities.ICraftingMachine;
 import com.llamalad7.mixinextras.sugar.Local;

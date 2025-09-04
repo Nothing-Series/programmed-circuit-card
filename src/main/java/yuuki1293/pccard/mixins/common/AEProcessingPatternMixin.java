@@ -1,12 +1,12 @@
-package yuuki1293.pccard.mixins;
+package yuuki1293.pccard.mixins.common;
 
-import net.pedroksl.advanced_ae.common.patterns.AdvProcessingPattern;
+import appeng.crafting.pattern.AEProcessingPattern;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import yuuki1293.pccard.wrapper.IAEPattern;
 
-@Mixin(value = AdvProcessingPattern.class, remap = false)
-public class AdvProcessingPatternMixin implements IAEPattern {
+@Mixin(value = AEProcessingPattern.class, remap = false)
+public class AEProcessingPatternMixin implements IAEPattern {
     @Unique
     private int pCCard$number = 0;
 

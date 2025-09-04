@@ -1,4 +1,4 @@
-package yuuki1293.pccard.mixins;
+package yuuki1293.pccard.mixins.common;
 
 import appeng.api.crafting.IPatternDetails;
 import appeng.api.crafting.PatternDetailsHelper;

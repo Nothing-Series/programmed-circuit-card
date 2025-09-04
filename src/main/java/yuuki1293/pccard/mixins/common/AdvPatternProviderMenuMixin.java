@@ -1,13 +1,13 @@
-package yuuki1293.pccard.mixins;
+package yuuki1293.pccard.mixins.common;
 
 import appeng.api.upgrades.IUpgradeInventory;
 import appeng.api.upgrades.IUpgradeableObject;
-import appeng.helpers.patternprovider.PatternProviderLogicHost;
 import appeng.menu.AEBaseMenu;
 import appeng.menu.ToolboxMenu;
-import appeng.menu.implementations.PatternProviderMenu;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
+import net.pedroksl.advanced_ae.common.logic.AdvPatternProviderLogicHost;
+import net.pedroksl.advanced_ae.gui.advpatternprovider.AdvPatternProviderMenu;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,20 +16,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import yuuki1293.pccard.xmod.CompetitionFixer;
 import yuuki1293.pccard.wrapper.IPatternProviderMenuMixin;
 
-@Mixin(value = PatternProviderMenu.class, remap = false)
-public abstract class PatternProviderMenuMixin extends AEBaseMenu implements IPatternProviderMenuMixin {
+@Mixin(value = AdvPatternProviderMenu.class, remap = false)
+public class AdvPatternProviderMenuMixin extends AEBaseMenu implements IPatternProviderMenuMixin {
     @Unique
     private IUpgradeableObject pCCard$host;
 
-    @Unique
-    private ToolboxMenu pCCard$toolbox;
+    @Unique ToolboxMenu pCCard$toolbox;
 
-    public PatternProviderMenuMixin(MenuType<?> menuType, int id, Inventory playerInventory, Object host) {
+    public AdvPatternProviderMenuMixin(MenuType<?> menuType, int id, Inventory playerInventory, Object host) {
         super(menuType, id, playerInventory, host);
     }
 
-    @Inject(method = "<init>(Lnet/minecraft/world/inventory/MenuType;ILnet/minecraft/world/entity/player/Inventory;Lappeng/helpers/patternprovider/PatternProviderLogicHost;)V", at = @At("TAIL"))
-    private void init(MenuType<?> menuType, int id, Inventory playerInventory, PatternProviderLogicHost host, CallbackInfo ci) {
+    @Inject(method = "<init>(Lnet/minecraft/world/inventory/MenuType;ILnet/minecraft/world/entity/player/Inventory;Lnet/pedroksl/advanced_ae/common/logic/AdvPatternProviderLogicHost;)V", at = @At("TAIL"))
+    private void init(MenuType<?> menuType, int id, Inventory playerInventory, AdvPatternProviderLogicHost host, CallbackInfo ci) {
         if (CompetitionFixer.existAppflux.get()) return;
 
         this.pCCard$host = (IUpgradeableObject) host;
@@ -59,7 +58,7 @@ public abstract class PatternProviderMenuMixin extends AEBaseMenu implements IPa
         return pCCard$getHost().getUpgrades();
     }
 
-    @Unique
+    @Override
     public ToolboxMenu pCCard$getToolbox() {
         return this.pCCard$toolbox;
     }

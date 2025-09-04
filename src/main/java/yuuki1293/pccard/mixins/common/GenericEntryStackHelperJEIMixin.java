@@ -1,4 +1,4 @@
-package yuuki1293.pccard.mixins;
+package yuuki1293.pccard.mixins.common;
 
 import appeng.api.stacks.GenericStack;
 import appeng.integration.modules.jei.GenericEntryStackHelper;
