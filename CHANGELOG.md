@@ -1,7 +1,7 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
-## [Unreleased]
+## [1.1.0]
 ### Added
  - It works with deeper recursive networks [#34](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/34)
  - new config file (pccard-common.toml)
