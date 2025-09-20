@@ -18,7 +18,8 @@ public class ConfigCommon {
         builder.comment("*****************************************");
 
         SEARCH_DEPTH = builder
-            .comment("Maximum depth for searching connected machines in subnet tree. \n Higher values allow deeper traversal but may impact performance.")
+            .comment("Maximum depth for searching connected machines in subnet tree.")
+            .comment("Higher values allow deeper traversal but may impact performance.")
             .defineInRange("search_depth", 5, 0, 100);
 
         spec = builder.build();
