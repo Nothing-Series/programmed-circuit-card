@@ -2,6 +2,11 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
+### Added
+ - It works with deeper recursive networks [#34](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/34)
+ - new config file (pccard-common.toml)
+ - new config entry (search_depth)
+
 ### Known Issues
  - Currently incompatible with Expanded AE. This will be resolved in a future release.
 
