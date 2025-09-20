@@ -38,6 +38,7 @@ public class PCCard {
         ITEMS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.spec);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigCommon.spec);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

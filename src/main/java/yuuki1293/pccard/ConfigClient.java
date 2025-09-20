@@ -27,7 +27,7 @@ public class ConfigClient {
     public static boolean jeiIntegration;
 
     @SubscribeEvent
-    static void onLoad(final ModConfigEvent event)
+    static void onLoad(final ModConfigEvent.Reloading event)
     {
         jeiIntegration = JEI_INTEGRATION.get();
     }
