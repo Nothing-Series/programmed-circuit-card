@@ -124,11 +124,7 @@ public class PatternProviderLogicImpl {
                 allLeafNodes.add(posDir.getA());
             } else {
                 // Add children to queue for next level traversal
-                for (var childPos : children) {
-                    // For child nodes, we need to determine the direction they were accessed from
-                    // This is a simplification - in a more complex scenario, you might need
-                    // to track the actual connection directions
-                    var childPosDir = new Tuple<>(childPos, posDir.getB());
+                for (var childPosDir : children) {
                     queue.offer(new Tuple<>(childPosDir, depth + 1));
                 }
             }
@@ -180,7 +176,7 @@ public class PatternProviderLogicImpl {
      * @param side interface side
      * @return storage bus dest
      */
-    public static List<BlockPos> getSendPosSubnet(Level level, BlockPos pos, Direction side) {
+    public static List<Tuple<BlockPos, Direction>> getSendPosSubnet(Level level, BlockPos pos, Direction side) {
         var host = getActionHost(level, pos, side);
         var grid = getGrid(host);
         var parts = getStorageBusParts(grid);
@@ -230,14 +226,14 @@ public class PatternProviderLogicImpl {
     /**
      * get BlockPos es from storageBusPart list
      */
-    private static List<BlockPos> getBlockPoses(Iterable<StorageBusPart> parts) {
-        var poses = new ArrayList<BlockPos>();
+    private static List<Tuple<BlockPos, Direction>> getBlockPoses(Iterable<StorageBusPart> parts) {
+        var poses = new ArrayList<Tuple<BlockPos, Direction>>();
 
         for (var part : parts) {
             var pos = part.getBlockEntity().getBlockPos();
             var side = part.getSide();
             var machinePos = pos.relative(side);
-            poses.add(machinePos);
+            poses.add(new Tuple<>(machinePos, side.getOpposite()));
         }
 
         return poses;
