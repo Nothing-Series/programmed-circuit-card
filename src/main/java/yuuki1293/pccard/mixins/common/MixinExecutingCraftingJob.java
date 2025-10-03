@@ -15,7 +15,7 @@ import java.util.Map;
 import static yuuki1293.pccard.NBTs.NBT_CIRCUIT;
 
 @Mixin(value = ExecutingCraftingJob.class, remap = false)
-public abstract class ExecutingCraftingJobMixin {
+public abstract class MixinExecutingCraftingJob {
     @Inject(method = "writeToNBT", at = @At(value = "INVOKE", target = "Lnet/minecraft/nbt/CompoundTag;putLong(Ljava/lang/String;J)V"))
     public void writeToNBT(CallbackInfoReturnable<CompoundTag> cir, @Local(name = "e") Map.Entry<IPatternDetails, ?> e, @Local(name = "item") CompoundTag item) {
         var key = e.getKey();

@@ -10,17 +10,49 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Controls load/unloading of Mixin classes.
+ * When unloading and loading conflict, unloading takes priority.
+ */
 public class PCCardMixinPlugin implements IMixinConfigPlugin {
-
     private static final String COMMON_MIXIN_PACKAGE = "yuuki1293.pccard.mixins.common.";
     private static final Map<String, Set<String>> LOAD_WHEN_MOD_PRESENT = new HashMap<>();
     private static final Map<String, Set<String>> EXCLUDE_WHEN_MOD_PRESENT = new HashMap<>();
 
     static {
         LOAD_WHEN_MOD_PRESENT.put("expandedae", Set.of(
+            "yuuki1293.pccard.mixins.expandedae.MixinExpAppFluxSavePushDirection",
+            "yuuki1293.pccard.mixins.expandedae.MixinExpSavePushDirection"
+        ));
+        EXCLUDE_WHEN_MOD_PRESENT.put("expandedae", Set.of(
+            "yuuki1293.pccard.mixins.common.MixinSavePushDirection",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvSavePushDirection"
         ));
 
-        EXCLUDE_WHEN_MOD_PRESENT.put("expandedae", Set.of(
+        LOAD_WHEN_MOD_PRESENT.put("appflux", Set.of(
+            "yuuki1293.pccard.mixins.appflux.MixinAppFluxAddUpgradeSlot",
+            "yuuki1293.pccard.mixins.appflux.MixinAppFluxAdvAddUpgradeSlot"
+        ));
+        EXCLUDE_WHEN_MOD_PRESENT.put("appflux", Set.of(
+            "yuuki1293.pccard.mixins.common.MixinAddUpgradeSlot",
+            "yuuki1293.pccard.mixins.common.MixinPatternProviderScreen",
+            "yuuki1293.pccard.mixins.common.MixinPatternProviderMenu",
+            "yuuki1293.pccard.mixins.common.MixinPatternProviderLogicHost",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvAddUpgradeSlot",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinSmallAdvPatternProviderScreen",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvPatternProviderMenu",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvPatternProviderLogicHost"
+        ));
+
+        LOAD_WHEN_MOD_PRESENT.put("advanced_ae", Set.of(
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvAddUpgradeSlot",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvCraftingCPULogic",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvPatternProviderLogic",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvPatternProviderLogicHost",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvPatternProviderMenu",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvPatternProviderScreen",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvProcessingPattern",
+            "yuuki1293.pccard.mixins.advanced_ae.MixinSmallAdvPatternProviderScreen"
         ));
     }
 
@@ -35,26 +67,32 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        // Default: only load common mixins
+        boolean load = mixinClassName.startsWith(COMMON_MIXIN_PACKAGE);
+
         // Check if mixin should only load when specific mod is present
         for (Map.Entry<String, Set<String>> entry : LOAD_WHEN_MOD_PRESENT.entrySet()) {
             String requiredModId = entry.getKey();
             Set<String> mixinsForMod = entry.getValue();
             if (mixinsForMod.contains(mixinClassName)) {
-                return FMLLoader.getLoadingModList().getModFileById(requiredModId) != null;
+                if(FMLLoader.getLoadingModList().getModFileById(requiredModId) != null){
+                    load = true;
+                }
             }
         }
-        
+
         // Check if mixin should be excluded when specific mod is present
         for (Map.Entry<String, Set<String>> entry : EXCLUDE_WHEN_MOD_PRESENT.entrySet()) {
             String conflictingModId = entry.getKey();
             Set<String> mixinsToExclude = entry.getValue();
             if (mixinsToExclude.contains(mixinClassName)) {
-                return FMLLoader.getLoadingModList().getModFileById(conflictingModId) == null;
+                if(FMLLoader.getLoadingModList().getModFileById(conflictingModId) != null){
+                    load = false;
+                }
             }
         }
-        
-        // Default: only load common mixins
-        return mixinClassName.startsWith(COMMON_MIXIN_PACKAGE);
+
+        return load;
     }
 
     @Override

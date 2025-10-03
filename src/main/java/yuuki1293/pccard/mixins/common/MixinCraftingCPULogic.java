@@ -3,14 +3,14 @@ package yuuki1293.pccard.mixins.common;
 import appeng.api.crafting.IPatternDetails;
 import appeng.api.networking.crafting.ICraftingProvider;
 import appeng.api.stacks.KeyCounter;
-import net.pedroksl.advanced_ae.common.logic.AdvCraftingCPULogic;
+import appeng.crafting.execution.CraftingCpuLogic;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import yuuki1293.pccard.wrapper.IPatternProviderLogicMixin;
 
-@Mixin(value = AdvCraftingCPULogic.class, remap = false)
-public class AdvCraftingCPULogicMixin {
+@Mixin(value = CraftingCpuLogic.class, remap = false)
+public abstract class MixinCraftingCPULogic {
     @Redirect(method = "executeCrafting", at = @At(value = "INVOKE", target = "Lappeng/api/networking/crafting/ICraftingProvider;pushPattern(Lappeng/api/crafting/IPatternDetails;[Lappeng/api/stacks/KeyCounter;)Z"))
     private boolean pushPattern(ICraftingProvider provider, IPatternDetails patternDetails, KeyCounter[] keyCounters) {
         if (provider.pushPattern(patternDetails, keyCounters)) {

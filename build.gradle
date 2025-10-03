@@ -148,12 +148,13 @@ dependencies {
     compileOnly fg.deobf("curse.maven:extendedae-892005:${exae_version}") // Extended AE
     runtimeOnly fg.deobf("curse.maven:extendedae-892005:${exae_version}")
     runtimeOnly fg.deobf("curse.maven:glodium-957920:${glodium_version}")
-    runtimeOnly fg.deobf("curse.maven:applied-flux-965012:${appflux_version}") // Applied Flux
+//    runtimeOnly fg.deobf("curse.maven:applied-flux-965012:${appflux_version}") // Applied Flux
     implementation fg.deobf("curse.maven:mae2-1028068:${mae2_version}") // MAE2
     runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_version}") // Jade
     compileOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}:api") // GuideME
     runtimeOnly fg.deobf("org.appliedenergistics:guideme:${guideme_version}")
-    implementation fg.deobf("curse.maven:expanded-ae-1213351:${expanded_ae_version}") // Expanded AE
+    compileOnly fg.deobf("curse.maven:expanded-ae-1213351:${expanded_ae_version}") // Expanded AE
+    runtimeOnly fg.deobf("curse.maven:expanded-ae-1213351:${expanded_ae_version}")
     runtimeOnly fg.deobf("curse.maven:mega-cells-622112:${mega_cells_version}") // Mega Cells
     runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}") // Mega Cells
     runtimeOnly fg.deobf("curse.maven:applied-energistics-2-wireless-terminals-459929:${wireless_terminals_version}") // AE2 Wireless Terminals

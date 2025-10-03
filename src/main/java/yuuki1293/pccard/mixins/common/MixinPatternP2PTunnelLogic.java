@@ -15,7 +15,7 @@ import yuuki1293.pccard.wrapper.IPatternP2PTunnelLogicMixin;
 
 @Pseudo
 @Mixin(value = PatternP2PTunnelLogic.class, remap = false)
-public abstract class PatternP2PTunnelLogicMixin implements IPatternP2PTunnelLogicMixin {
+public abstract class MixinPatternP2PTunnelLogic implements IPatternP2PTunnelLogicMixin {
     @Unique
     private BlockPos pCCard$lastBlockPos;
 

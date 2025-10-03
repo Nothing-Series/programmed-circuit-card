@@ -16,7 +16,7 @@ import yuuki1293.pccard.wrapper.IAEPattern;
 import static yuuki1293.pccard.NBTs.NBT_CIRCUIT;
 
 @Mixin(value = PatternDetailsHelper.class, remap = false)
-public class PatternDetailsHelperMixin {
+public class MixinPatternDetailsHelper {
     /**
      * set pc number
      */

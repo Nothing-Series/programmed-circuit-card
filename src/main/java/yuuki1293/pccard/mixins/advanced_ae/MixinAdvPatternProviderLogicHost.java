@@ -1,4 +1,4 @@
-package yuuki1293.pccard.mixins.common;
+package yuuki1293.pccard.mixins.advanced_ae;
 
 import appeng.api.upgrades.IUpgradeInventory;
 import appeng.api.upgrades.IUpgradeableObject;
@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(value = AdvPatternProviderLogicHost.class, remap = false)
-public interface AdvPatternProviderLogicHostMixin extends IUpgradeableObject {
+public interface MixinAdvPatternProviderLogicHost extends IUpgradeableObject {
     @Shadow
     AdvPatternProviderLogic getLogic();
 

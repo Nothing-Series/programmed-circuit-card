@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Mixin(value = Ae2PatternTerminalHandler.class, remap = false)
-public abstract class Ae2PatternTerminalHandlerMixin {
+public abstract class MixinAe2PatternTerminalHandler {
     @Inject(method = "ofInputs", at = @At("RETURN"), cancellable = true)
     private static void ofInputs(EmiRecipe emiRecipe, CallbackInfoReturnable<List<List<GenericStack>>> cir) {
         if(!ConfigClient.jeiIntegration) return; // config

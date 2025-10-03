@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Mixin(value = GenericEntryStackHelper.class, remap = false)
-public abstract class GenericEntryStackHelperJEIMixin {
+public abstract class MixinGenericEntryStackHelperJEI {
     @Shadow
     private static List<GenericStack> ofSlot(IRecipeSlotView slot) {
         return null;

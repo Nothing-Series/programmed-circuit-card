@@ -13,25 +13,22 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import yuuki1293.pccard.xmod.CompetitionFixer;
 import yuuki1293.pccard.wrapper.IPatternProviderMenuMixin;
 
 @Mixin(value = PatternProviderMenu.class, remap = false)
-public abstract class PatternProviderMenuMixin extends AEBaseMenu implements IPatternProviderMenuMixin {
+public abstract class MixinPatternProviderMenu extends AEBaseMenu implements IPatternProviderMenuMixin {
     @Unique
     private IUpgradeableObject pCCard$host;
 
     @Unique
     private ToolboxMenu pCCard$toolbox;
 
-    public PatternProviderMenuMixin(MenuType<?> menuType, int id, Inventory playerInventory, Object host) {
+    public MixinPatternProviderMenu(MenuType<?> menuType, int id, Inventory playerInventory, Object host) {
         super(menuType, id, playerInventory, host);
     }
 
     @Inject(method = "<init>(Lnet/minecraft/world/inventory/MenuType;ILnet/minecraft/world/entity/player/Inventory;Lappeng/helpers/patternprovider/PatternProviderLogicHost;)V", at = @At("TAIL"))
     private void init(MenuType<?> menuType, int id, Inventory playerInventory, PatternProviderLogicHost host, CallbackInfo ci) {
-        if (CompetitionFixer.existAppflux.get()) return;
-
         this.pCCard$host = (IUpgradeableObject) host;
         this.pCCard$toolbox = new ToolboxMenu(this);
         this.pCCard$setupUpgrades();
@@ -39,8 +36,6 @@ public abstract class PatternProviderMenuMixin extends AEBaseMenu implements IPa
 
     @Inject(method = "broadcastChanges", at = @At("TAIL"))
     public void tickToolbox(CallbackInfo ci) {
-        if (CompetitionFixer.existAppflux.get()) return;
-
         this.pCCard$toolbox.tick();
     }
 

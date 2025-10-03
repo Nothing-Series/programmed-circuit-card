@@ -1,4 +1,4 @@
-package yuuki1293.pccard.mixins.common;
+package yuuki1293.pccard.mixins.advanced_ae;
 
 import appeng.api.upgrades.IUpgradeInventory;
 import appeng.api.upgrades.IUpgradeableObject;
@@ -13,24 +13,21 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import yuuki1293.pccard.xmod.CompetitionFixer;
 import yuuki1293.pccard.wrapper.IPatternProviderMenuMixin;
 
 @Mixin(value = AdvPatternProviderMenu.class, remap = false)
-public class AdvPatternProviderMenuMixin extends AEBaseMenu implements IPatternProviderMenuMixin {
+public class MixinAdvPatternProviderMenu extends AEBaseMenu implements IPatternProviderMenuMixin {
     @Unique
     private IUpgradeableObject pCCard$host;
 
     @Unique ToolboxMenu pCCard$toolbox;
 
-    public AdvPatternProviderMenuMixin(MenuType<?> menuType, int id, Inventory playerInventory, Object host) {
+    public MixinAdvPatternProviderMenu(MenuType<?> menuType, int id, Inventory playerInventory, Object host) {
         super(menuType, id, playerInventory, host);
     }
 
     @Inject(method = "<init>(Lnet/minecraft/world/inventory/MenuType;ILnet/minecraft/world/entity/player/Inventory;Lnet/pedroksl/advanced_ae/common/logic/AdvPatternProviderLogicHost;)V", at = @At("TAIL"))
     private void init(MenuType<?> menuType, int id, Inventory playerInventory, AdvPatternProviderLogicHost host, CallbackInfo ci) {
-        if (CompetitionFixer.existAppflux.get()) return;
-
         this.pCCard$host = (IUpgradeableObject) host;
         this.pCCard$toolbox = new ToolboxMenu(this);
         this.pCCard$setupUpgrades();
@@ -38,8 +35,6 @@ public class AdvPatternProviderMenuMixin extends AEBaseMenu implements IPatternP
 
     @Inject(method = "broadcastChanges", at = @At("TAIL"))
     public void tickToolbox(CallbackInfo ci) {
-        if (CompetitionFixer.existAppflux.get()) return;
-
         this.pCCard$toolbox.tick();
     }
 
