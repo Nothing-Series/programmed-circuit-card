@@ -6,29 +6,30 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 
 @Mod.EventBusSubscriber(modid = PCCard.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ConfigClient {
+public class ConfigCommon {
     private static final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
     static final ForgeConfigSpec spec;
 
-    private static final ForgeConfigSpec.BooleanValue JEI_INTEGRATION;
+    private static final ForgeConfigSpec.IntValue SEARCH_DEPTH;
 
     static {
         builder.comment("*****************************************");
-        builder.comment("* Programmed Circuit Card Client Config *");
+        builder.comment("* Programmed Circuit Card Common Config *");
         builder.comment("*****************************************");
 
-        JEI_INTEGRATION = builder
-            .comment("Place a Programmed Circuit at the Pattern Encoding Terminal.")
-            .define("jei_integration", true);
+        SEARCH_DEPTH = builder
+            .comment("Maximum depth for searching connected machines in subnet tree.")
+            .comment("Higher values allow deeper traversal but may impact performance.")
+            .defineInRange("search_depth", 5, 0, 100);
 
         spec = builder.build();
     }
 
-    public static boolean jeiIntegration;
+    public static int searchDepth;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent.Reloading event)
     {
-        jeiIntegration = JEI_INTEGRATION.get();
+        searchDepth = SEARCH_DEPTH.get();
     }
 }

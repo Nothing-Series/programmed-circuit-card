@@ -1,6 +1,19 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [1.1.1]
+### Fixed
+ - It may not function correctly on the deep subnet.
+
+## [1.1.0]
+### Added
+ - It works with deeper recursive networks [#34](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/34)
+ - new config file (pccard-common.toml)
+ - new config entry (search_depth)
+
+### Known Issues
+ - Currently incompatible with Expanded AE. This will be resolved in a future release.
+
 ## [1.0.18] - 2025-08-29
 ### Fixed
  - 1.0.17 is not working.

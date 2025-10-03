@@ -18,16 +18,18 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import org.slf4j.Logger;
 import yuuki1293.pccard.wrapper.IPatternP2PTunnelLogicMixin;
 import yuuki1293.pccard.wrapper.IPatternProviderLogicMixin;
 import yuuki1293.pccard.TagUtils;
 import yuuki1293.pccard.wrapper.IAEPattern;
+import yuuki1293.pccard.ConfigCommon;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.LinkedList;
+import java.util.HashSet;
 
 import static yuuki1293.pccard.NBTs.NBT_CIRCUIT;
 
@@ -89,18 +91,51 @@ public class PatternProviderLogicImpl {
 
     /**
      * get BlockPos which ingredient are sent. include subnet.
+     * Uses breadth-first search to traverse tree up to configured depth.
      * @param self caller
-     * @return all send posses
+     * @return all leaf nodes within configured depth
      */
     public static List<BlockPos> getSendPos(Level level, IPatternProviderLogicMixin self) {
-        var posDir = getSendPosDirect(self);
-        var pos2 = getSendPosSubnet(level, posDir.getA(), posDir.getB().getOpposite());
+        var rootPosDir = getSendPosDirect(self);
+        var allLeafNodes = new ArrayList<BlockPos>();
+        var visited = new HashSet<Tuple<BlockPos, Direction>>();
+        var queue = new LinkedList<Tuple<Tuple<BlockPos, Direction>, Integer>>();
 
-        if (pos2.isEmpty()) {
-            return List.of(posDir.getA());
-        } else {
-            return pos2;
+        // Start with root node at depth 0
+        queue.offer(new Tuple<>(rootPosDir, 0));
+
+        while (!queue.isEmpty()) {
+            var current = queue.poll();
+            var posDir = current.getA();
+            int depth = current.getB();
+
+            // Skip if already visited or if depth exceeds configured limit
+            if (visited.contains(posDir) || depth > ConfigCommon.searchDepth) {
+                continue;
+            }
+
+            visited.add(posDir);
+
+            // Get children nodes from subnet
+            var children = getSendPosSubnet(level, posDir.getA(), posDir.getB().getOpposite());
+
+            if (children.isEmpty()) {
+                // This is a leaf node, add to results
+                allLeafNodes.add(posDir.getA());
+            } else {
+                // Add children to queue for next level traversal
+                for (var childPosDir : children) {
+                    queue.offer(new Tuple<>(childPosDir, depth + 1));
+                }
+            }
         }
+
+        // If no leaf nodes found, return the root
+        if (allLeafNodes.isEmpty()) {
+            allLeafNodes.add(rootPosDir.getA());
+        }
+
+        return allLeafNodes;
     }
 
     /**
@@ -141,7 +176,7 @@ public class PatternProviderLogicImpl {
      * @param side interface side
      * @return storage bus dest
      */
-    public static List<BlockPos> getSendPosSubnet(Level level, BlockPos pos, Direction side) {
+    public static List<Tuple<BlockPos, Direction>> getSendPosSubnet(Level level, BlockPos pos, Direction side) {
         var host = getActionHost(level, pos, side);
         var grid = getGrid(host);
         var parts = getStorageBusParts(grid);
@@ -191,14 +226,14 @@ public class PatternProviderLogicImpl {
     /**
      * get BlockPos es from storageBusPart list
      */
-    private static List<BlockPos> getBlockPoses(Iterable<StorageBusPart> parts) {
-        var poses = new ArrayList<BlockPos>();
+    private static List<Tuple<BlockPos, Direction>> getBlockPoses(Iterable<StorageBusPart> parts) {
+        var poses = new ArrayList<Tuple<BlockPos, Direction>>();
 
         for (var part : parts) {
             var pos = part.getBlockEntity().getBlockPos();
             var side = part.getSide();
             var machinePos = pos.relative(side);
-            poses.add(machinePos);
+            poses.add(new Tuple<>(machinePos, side.getOpposite()));
         }
 
         return poses;

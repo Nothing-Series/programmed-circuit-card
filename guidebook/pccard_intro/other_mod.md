@@ -15,7 +15,7 @@ navigation:
 * Compatibility with the Advanced Pattern Provider.
 
 ## Expanded AE
-* Compatibility with the Expanded Pattern Provider.
+* Currently competing.
 
 ## Modern AE2 Additions (MAE2)
 * Compatibility with Pattern P2P.
