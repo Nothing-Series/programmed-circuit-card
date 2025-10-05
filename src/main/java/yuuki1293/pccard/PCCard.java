@@ -30,8 +30,8 @@ public class PCCard {
 
     public static final RegistryObject<Item> PROGRAMMED_CIRCUIT_CARD_ITEM = ITEMS.register("card_programmed_circuit", () -> Upgrades.createUpgradeCardItem(new Item.Properties()));
 
-    public PCCard() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public PCCard(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
         modEventBus.addListener(this::onBuildCreativeModeTabContentsEvent);
         modEventBus.addListener(this::commonSetup);
 
