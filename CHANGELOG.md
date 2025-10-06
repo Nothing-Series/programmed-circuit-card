@@ -1,11 +1,18 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
-## [1.1.1]
+## [1.2.0] - 2025-10-06
+### Added
+ - Add a JVM argument to control the addition of upgrade slots. Check the README.
+
+### Fixed
+ - Resolve the conflict with Expanded AE. (Thanks, ko-lja.)
+
+## [1.1.1] - 2025-09-22
 ### Fixed
  - It may not function correctly on the deep subnet.
 
-## [1.1.0]
+## [1.1.0] - 2025-09-21
 ### Added
  - It works with deeper recursive networks [#34](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/34)
  - new config file (pccard-common.toml)
