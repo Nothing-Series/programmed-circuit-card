@@ -12,7 +12,7 @@ navigation:
 ## Advanced AE
 * 発展型パターンプロバイダーでの動作。
 ## Expanded AE
-* 現在競合します。
+* 強化拡張型パターンプロバイダーでの動作。
 ## Modern AE2 Additions (MAE2)
 * パターンP2Pでの動作。
 ## MEGA Cells
