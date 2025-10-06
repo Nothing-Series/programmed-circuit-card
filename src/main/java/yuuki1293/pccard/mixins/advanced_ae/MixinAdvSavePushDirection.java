@@ -1,41 +1,26 @@
 package yuuki1293.pccard.mixins.advanced_ae;
 
-import appeng.api.crafting.IPatternDetails;
-import appeng.api.upgrades.IUpgradeableObject;
 import com.llamalad7.mixinextras.sugar.Local;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.pedroksl.advanced_ae.common.logic.AdvPatternProviderLogic;
-import net.pedroksl.advanced_ae.common.logic.AdvPatternProviderLogicHost;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import yuuki1293.pccard.PCCard;
-import yuuki1293.pccard.impl.PatternProviderLogicImpl;
-import yuuki1293.pccard.wrapper.IPatternProviderLogicMixin;
-
-import java.util.List;
 
 @Mixin(value = AdvPatternProviderLogic.class, remap = false)
-public abstract class MixinAdvSavePushDirection implements IUpgradeableObject, IPatternProviderLogicMixin {
+public abstract class MixinAdvSavePushDirection {
     @Unique
     private static Direction pCCard$sendDirection;
 
-    @Inject(method = "pushPattern", at = @At(value = "INVOKE", target = "Lnet/pedroksl/advanced_ae/common/logic/AdvPatternProviderLogic;onPushPatternSuccess(Lappeng/api/crafting/IPatternDetails;)V", ordinal = 0), require = 1)
-    private void pushPatternCraftingMachine(CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Direction direction) {
+    @Inject(method = "pushPattern", at = @At(value = "INVOKE", target = "Lnet/pedroksl/advanced_ae/common/logic/AdvPatternProviderLogic;onPushPatternSuccess(Lappeng/api/crafting/IPatternDetails;)V"), require = 2)
+    private void saveDirection(CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Direction direction) {
         pCCard$sendDirection = direction;
     }
 
-    @Inject(method = "pushPattern", at = @At(value = "INVOKE", target = "Lnet/pedroksl/advanced_ae/common/logic/AdvPatternProviderLogic;onPushPatternSuccess(Lappeng/api/crafting/IPatternDetails;)V", ordinal = 1), require = 1)
-    private void pushPatternProcessingMachine(CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Direction direction) {
+    @Inject(method = "pushInputsDirectionally", at = @At(value = "INVOKE", target = "Lnet/pedroksl/advanced_ae/common/logic/AdvPatternProviderLogic;onPushPatternSuccess(Lappeng/api/crafting/IPatternDetails;)V"), require = 1)
+    private void saveDirectionDirectionally(CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Direction direction) {
         pCCard$sendDirection = direction;
     }
 }

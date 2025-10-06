@@ -185,6 +185,9 @@ tasks.named('processResources', ProcessResources).configure {
 }
 
 mixin {
+//    add sourceSets.main, 'mixins.pccard.refmap.json'
+    config 'mixins.pccard.json'
+
     mixin.debug.export = true
 }
 

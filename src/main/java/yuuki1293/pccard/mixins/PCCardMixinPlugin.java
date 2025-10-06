@@ -25,8 +25,7 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
             "yuuki1293.pccard.mixins.expandedae.MixinExpSavePushDirection"
         ));
         EXCLUDE_WHEN_MOD_PRESENT.put("expandedae", Set.of(
-            "yuuki1293.pccard.mixins.common.MixinSavePushDirection",
-            "yuuki1293.pccard.mixins.advanced_ae.MixinAdvSavePushDirection"
+            "yuuki1293.pccard.mixins.common.MixinSavePushDirection"
         ));
 
         LOAD_WHEN_MOD_PRESENT.put("appflux", Set.of(
@@ -71,23 +70,27 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
         boolean load = mixinClassName.startsWith(COMMON_MIXIN_PACKAGE);
 
         // Check if mixin should only load when specific mod is present
-        for (Map.Entry<String, Set<String>> entry : LOAD_WHEN_MOD_PRESENT.entrySet()) {
-            String requiredModId = entry.getKey();
-            Set<String> mixinsForMod = entry.getValue();
-            if (mixinsForMod.contains(mixinClassName)) {
-                if(FMLLoader.getLoadingModList().getModFileById(requiredModId) != null){
-                    load = true;
+        if(!load) {
+            for (Map.Entry<String, Set<String>> entry : LOAD_WHEN_MOD_PRESENT.entrySet()) {
+                String requiredModId = entry.getKey();
+                Set<String> mixinsForMod = entry.getValue();
+                if (mixinsForMod.contains(mixinClassName)) {
+                    if (FMLLoader.getLoadingModList().getModFileById(requiredModId) != null) {
+                        load = true;
+                    }
                 }
             }
         }
 
         // Check if mixin should be excluded when specific mod is present
-        for (Map.Entry<String, Set<String>> entry : EXCLUDE_WHEN_MOD_PRESENT.entrySet()) {
-            String conflictingModId = entry.getKey();
-            Set<String> mixinsToExclude = entry.getValue();
-            if (mixinsToExclude.contains(mixinClassName)) {
-                if(FMLLoader.getLoadingModList().getModFileById(conflictingModId) != null){
-                    load = false;
+        if(load) {
+            for (Map.Entry<String, Set<String>> entry : EXCLUDE_WHEN_MOD_PRESENT.entrySet()) {
+                String conflictingModId = entry.getKey();
+                Set<String> mixinsToExclude = entry.getValue();
+                if (mixinsToExclude.contains(mixinClassName)) {
+                    if (FMLLoader.getLoadingModList().getModFileById(conflictingModId) != null) {
+                        load = false;
+                    }
                 }
             }
         }

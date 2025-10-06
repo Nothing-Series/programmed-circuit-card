@@ -12,7 +12,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -37,8 +36,8 @@ public class PCCard {
 
         ITEMS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.spec);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigCommon.spec);
+        context.registerConfig(ModConfig.Type.CLIENT, ConfigClient.spec);
+        context.registerConfig(ModConfig.Type.COMMON, ConfigCommon.spec);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -59,8 +58,8 @@ public class PCCard {
 
         // Extended AE Pattern Provider
         var exPatternProviderGroup = "gui.expatternprovider.ex_pattern_provider";
-        var resourceExBE = new ResourceLocation("expatternprovider", "ex_pattern_provider");
-        var resourceExPart = new ResourceLocation("expatternprovider", "ex_pattern_provider_part");
+        var resourceExBE = ResourceLocation.fromNamespaceAndPath("expatternprovider", "ex_pattern_provider");
+        var resourceExPart = ResourceLocation.fromNamespaceAndPath("expatternprovider", "ex_pattern_provider_part");
         var patternProviderExBE = ForgeRegistries.BLOCKS.getValue(resourceExBE);
         var patternProviderExPart = ForgeRegistries.ITEMS.getValue(resourceExPart);
         if (patternProviderExBE != null && patternProviderExPart != null) {
@@ -72,10 +71,10 @@ public class PCCard {
         {
             var adPatternProviderGroup = "gui.advanced_ae.AdvPatternProvider";
             var namespaceAd = "advanced_ae";
-            var resourceAdBE = new ResourceLocation(namespaceAd, "small_adv_pattern_provider");
-            var resourceAdPart = new ResourceLocation(namespaceAd, "small_adv_pattern_provider_part");
-            var resourceAdExBE = new ResourceLocation(namespaceAd, "adv_pattern_provider");
-            var resourceAdExPart = new ResourceLocation(namespaceAd, "adv_pattern_provider_part");
+            var resourceAdBE = ResourceLocation.fromNamespaceAndPath(namespaceAd, "small_adv_pattern_provider");
+            var resourceAdPart = ResourceLocation.fromNamespaceAndPath(namespaceAd, "small_adv_pattern_provider_part");
+            var resourceAdExBE = ResourceLocation.fromNamespaceAndPath(namespaceAd, "adv_pattern_provider");
+            var resourceAdExPart = ResourceLocation.fromNamespaceAndPath(namespaceAd, "adv_pattern_provider_part");
             var patternProviderAdBE = ForgeRegistries.BLOCKS.getValue(resourceAdBE);
             var patternProviderAdPart = ForgeRegistries.ITEMS.getValue(resourceAdPart);
             var patternProviderAdExBE = ForgeRegistries.BLOCKS.getValue(resourceAdExBE);
@@ -92,8 +91,8 @@ public class PCCard {
         {
             var expPatternProviderGroup = "gui.expandedae.exp_pattern_provider";
             var namespaceExp = "expandedae";
-            var resourceExpBE = new ResourceLocation(namespaceExp, "exp_pattern_provider");
-            var resourceExpPart = new ResourceLocation(namespaceExp, "exp_pattern_provider_part");
+            var resourceExpBE = ResourceLocation.fromNamespaceAndPath(namespaceExp, "exp_pattern_provider");
+            var resourceExpPart = ResourceLocation.fromNamespaceAndPath(namespaceExp, "exp_pattern_provider_part");
             var patternProviderExpBE = ForgeRegistries.BLOCKS.getValue(resourceExpBE);
             var patternProviderExpPart = ForgeRegistries.ITEMS.getValue(resourceExpPart);
             if (patternProviderExpBE != null && patternProviderExpPart != null) {
@@ -106,8 +105,8 @@ public class PCCard {
         {
             var megaPatternProviderGroup = "block.megacells.mega_pattern_provider";
             var namespaceMega = "megacells";
-            var resourceMegaBE = new ResourceLocation(namespaceMega, "mega_pattern_provider");
-            var resourceMegaPart = new ResourceLocation(namespaceMega, "cable_mega_pattern_provider");
+            var resourceMegaBE = ResourceLocation.fromNamespaceAndPath(namespaceMega, "mega_pattern_provider");
+            var resourceMegaPart = ResourceLocation.fromNamespaceAndPath(namespaceMega, "cable_mega_pattern_provider");
             var patternProviderMegaBE = ForgeRegistries.BLOCKS.getValue(resourceMegaBE);
             var patternProviderMegaPart = ForgeRegistries.ITEMS.getValue(resourceMegaPart);
             if (patternProviderMegaBE != null && patternProviderMegaPart != null) {

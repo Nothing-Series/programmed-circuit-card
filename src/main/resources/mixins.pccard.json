@@ -27,7 +27,6 @@
     "common.MixinPatternProviderLogicHost",
     "common.MixinPatternProviderMenu",
     "common.MixinSavePushDirection",
-    "expandedae.MixinExpAppFluxSavePushDirection",
     "expandedae.MixinExpSavePushDirection"
   ],
   "client": [
