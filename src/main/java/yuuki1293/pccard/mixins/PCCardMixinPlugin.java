@@ -5,7 +5,10 @@ import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,6 +21,10 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
     private static final String COMMON_MIXIN_PACKAGE = "yuuki1293.pccard.mixins.common.";
     private static final Map<String, Set<String>> LOAD_WHEN_MOD_PRESENT = new HashMap<>();
     private static final Map<String, Set<String>> EXCLUDE_WHEN_MOD_PRESENT = new HashMap<>();
+    private static final Set<String> EXCLUDE_ALWAYS = new HashSet<>();
+    private static final String DISABLE_SLOT_PROPERTY = "pccard.disableSlot";
+
+    private static Set<String> jvmArguments = Set.of();
 
     static {
         LOAD_WHEN_MOD_PRESENT.put("expandedae", Set.of(
@@ -57,6 +64,19 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public void onLoad(String mixinPackage) {
+        jvmArguments = gatherJvmArguments();
+        if (shouldSkipAddUpgradesSlotMixins()) {
+            EXCLUDE_ALWAYS.addAll(Set.of(
+                "yuuki1293.pccard.mixins.common.MixinAddUpgradeSlot",
+                "yuuki1293.pccard.mixins.common.MixinPatternProviderScreen",
+                "yuuki1293.pccard.mixins.common.MixinPatternProviderMenu",
+                "yuuki1293.pccard.mixins.common.MixinPatternProviderLogicHost",
+                "yuuki1293.pccard.mixins.advanced_ae.MixinAdvAddUpgradeSlot",
+                "yuuki1293.pccard.mixins.advanced_ae.MixinSmallAdvPatternProviderScreen",
+                "yuuki1293.pccard.mixins.advanced_ae.MixinAdvPatternProviderMenu",
+                "yuuki1293.pccard.mixins.advanced_ae.MixinAdvPatternProviderLogicHost"
+            ));
+        }
     }
 
     @Override
@@ -70,7 +90,7 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
         boolean load = mixinClassName.startsWith(COMMON_MIXIN_PACKAGE);
 
         // Check if mixin should only load when specific mod is present
-        if(!load) {
+        if (!load) {
             for (Map.Entry<String, Set<String>> entry : LOAD_WHEN_MOD_PRESENT.entrySet()) {
                 String requiredModId = entry.getKey();
                 Set<String> mixinsForMod = entry.getValue();
@@ -83,7 +103,7 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
         }
 
         // Check if mixin should be excluded when specific mod is present
-        if(load) {
+        if (load) {
             for (Map.Entry<String, Set<String>> entry : EXCLUDE_WHEN_MOD_PRESENT.entrySet()) {
                 String conflictingModId = entry.getKey();
                 Set<String> mixinsToExclude = entry.getValue();
@@ -92,6 +112,13 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
                         load = false;
                     }
                 }
+            }
+        }
+
+        // Check if mixin should be excluded
+        if (load) {
+            if (EXCLUDE_ALWAYS.contains(mixinClassName)) {
+                load = false;
             }
         }
 
@@ -113,5 +140,22 @@ public class PCCardMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
+    }
+
+    private static Set<String> gatherJvmArguments() {
+        RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
+        return new HashSet<>(runtimeMXBean.getInputArguments());
+    }
+
+    private static boolean shouldSkipAddUpgradesSlotMixins() {
+        if (Boolean.getBoolean(DISABLE_SLOT_PROPERTY)) {
+            return true;
+        }
+
+        return hasJvmArgument("-D" + DISABLE_SLOT_PROPERTY);
+    }
+
+    private static boolean hasJvmArgument(String argument) {
+        return jvmArguments.stream().anyMatch(arg -> arg.equals(argument) || arg.startsWith(argument + "="));
     }
 }

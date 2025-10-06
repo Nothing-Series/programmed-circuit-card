@@ -40,3 +40,11 @@ gradlew copyResourcePacks
 1. commit with "update version to vx.y.z"
 2. add tag "v1.2x.x-x.y.z"
 3. push with tag
+
+## Other
+
+### Disable adding upgrade slots
+Add the following to the JVM arguments.
+```
+-Dpccard.disableSlot
+```
