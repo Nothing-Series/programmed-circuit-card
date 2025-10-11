@@ -28,7 +28,13 @@ public class ConfigCommon {
     public static int searchDepth;
 
     @SubscribeEvent
-    static void onLoad(final ModConfigEvent.Reloading event)
+    static void onLoad(final ModConfigEvent.Loading event)
+    {
+        searchDepth = SEARCH_DEPTH.get();
+    }
+
+    @SubscribeEvent
+    static void onReLoad(final ModConfigEvent.Reloading event)
     {
         searchDepth = SEARCH_DEPTH.get();
     }
