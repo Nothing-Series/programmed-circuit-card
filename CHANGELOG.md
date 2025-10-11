@@ -1,6 +1,10 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [1.2.1] - 2025-10-11
+### Fixed
+ - [Bug] EMI Recipe assign doesnt add circuit anymore [#38](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/38)
+
 ## [1.2.0] - 2025-10-06
 ### Added
  - Add a JVM argument to control the addition of upgrade slots. Check the README.
