@@ -57,6 +57,11 @@ public abstract class MixinPatternProviderLogic implements IUpgradeableObject, I
     }
 
     @Override
+    public void pCCard$setSendDirection(Direction direction){
+        pCCard$sendDirection = direction;
+    }
+
+    @Override
     public boolean pCCard$hasPCCard() {
         return isUpgradedWith(PCCard.PROGRAMMED_CIRCUIT_CARD_ITEM.get());
     }

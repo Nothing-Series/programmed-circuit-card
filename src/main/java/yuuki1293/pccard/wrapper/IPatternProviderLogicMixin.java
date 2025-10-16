@@ -27,6 +27,11 @@ public interface IPatternProviderLogicMixin {
     Direction pCCard$getSendDirection();
 
     /**
+     * set send direction
+     */
+    void pCCard$setSendDirection(Direction direction);
+
+    /**
      * @return host's BlockEntity
      */
     BlockEntity pCCard$getBlockEntity();
