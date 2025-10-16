@@ -1,6 +1,10 @@
 # 1.20.1 Changelog
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [1.2.2] - 2025-10-16
+### Fixed
+ - Fixed a bug where circuit numbers were not set in certain environments.
+
 ## [1.2.1] - 2025-10-11
 ### Fixed
  - [Bug] EMI Recipe assign doesnt add circuit anymore [#38](https://github.com/yuuki1293/ProgrammedCircuitCard/issues/38)
