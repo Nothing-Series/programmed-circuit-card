@@ -1,12 +1,72 @@
 
-# idea
-out
+# IDE
+.idea/
 *.ipr
 *.iws
 *.iml
-.idea
+.vscode/
+*.swp
+*.swo
+*~
 
-# gradle
-build
-.gradle
+# Gradle
+build/
+.gradle/
+gradle-app.setting
+
+# Run/Output directories
+run-data/
+out/
+target/
+bin/
+dist/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Java/Minecraft
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+.classpath
+.project
+.settings/
+.m2/
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Mixin
+.mixin.out/
+
+# Configuration files with secrets
+.env
+.env.local
+.env.*.local
+config/
+*.properties
+*.yml
+*.yaml
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+*.pid.lock
+
+# Backup files
+*.bak
+*.backup
+*.orig
 
